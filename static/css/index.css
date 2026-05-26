@@ -1,0 +1,38 @@
+.custom-carousel {
+    width: 98%;
+    margin: 20px auto; 
+}
+
+.carousel-img {
+    height: 40vh;          
+    object-fit: cover;     
+    border-radius: 12px;   
+}
+
+.info-container {
+    width: 98%;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.info-card {
+    background-color: whitesmoke;
+    border-left: 5px solid rgba(35, 57, 105); 
+    padding: 20px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+
+.info-card:hover {
+    transform: translateX(10px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.info-card p {
+    margin: 0;
+    color: #333;
+    line-height: 1.6;
+}

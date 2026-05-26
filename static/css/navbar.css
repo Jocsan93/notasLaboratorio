@@ -1,0 +1,60 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-content {
+    flex: 1;
+}
+
+.navbar-nav .nav-link {
+    transition: all 0.3s ease;
+    padding: 6px 12px;
+    border-radius: 8px;
+}
+
+/* HOVER */
+.navbar-nav .nav-link:hover {
+    background-color: rgba(255, 205, 23); 
+    color: white !important;
+    border-radius: 10px;
+}
+
+.login-btn {
+    background-color: white;
+    color: rgba(35, 57, 105); 
+    border: 2px solid rgba(35, 57, 105); 
+    border-radius: 10px;
+    padding: 6px 14px;
+    transition: all 0.3s ease;
+}
+
+/* HOVER */
+.login-btn:hover {
+    background-color: rgba(35, 57, 105); 
+    color: white;
+    border-color: rgba(35, 57, 105);
+}
+
+.footer-custom {
+    background-color: rgba(35, 57, 105);
+}
+
+.footer-content {
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+.footer-link {
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+

@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+{% block extra_css%} 
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+{% block content %}
+
+<script src="{%static 'bootstrap/js/bootstrap.js'%}"></script>
+<div id="carouselWithControls" class="carousel slide custom-carousel" data-bs-ride="carousel">
+
+  <div class="carousel-inner">
+
+    <div class="carousel-item active">
+      <img src="{% static 'IMG/carusel1.jpg' %}" class="d-block w-100 carousel-img" alt="Slide 1">
+    </div>
+
+    <div class="carousel-item">
+      <img src="{% static 'IMG/carusel2.jpg' %}" class="d-block w-100 carousel-img" alt="Slide 2">
+    </div>
+
+    <div class="carousel-item">
+      <img src="{% static 'IMG/carusel3.jpg' %}" class="d-block w-100 carousel-img" alt="Slide 3">
+    </div>
+
+  </div>
+
+  <!-- CONTROLES -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselWithControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselWithControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+
+</div>
+
+<div class="info-container">
+
+  <div class="info-card">
+    <p>
+    El Sistema de Notas de Laboratorio de la Escuela de Física de la UNAH está diseñado 
+    para facilitar la gestión, registro y consulta de las prácticas de laboratorio realizadas por los 
+    estudiantes, integrando en una sola plataforma digital los procesos que anteriormente se llevaban de forma manual 
+    o descentralizada. Su objetivo principal es centralizar la información académica de manera clara, accesible y 
+    organizada, permitiendo que tanto estudiantes como docentes puedan interactuar con los datos de forma más 
+    eficiente y segura. Además, el sistema busca mejorar la trazabilidad de las evaluaciones realizadas en 
+    laboratorio, asegurando que cada actividad quede correctamente registrada y disponible para su posterior revisión.
+    </p>
+  </div>
+
+  <div class="info-card">
+    <p>
+    A través de esta plataforma, se busca optimizar el seguimiento del rendimiento en
+     laboratorio, mejorar la organización de las evaluaciones y brindar a los docentes una
+      herramienta eficiente para la gestión de notas dentro del entorno académico. Esto permite que 
+      los procesos de evaluación sean más transparentes, estructurados y fáciles de consultar, reduciendo 
+      la posibilidad de errores en el registro de calificaciones. Asimismo, se facilita la toma de decisiones 
+      académicas al contar con información actualizada y centralizada, lo que contribuye a una mejor planificación 
+      de las actividades de laboratorio y al fortalecimiento del proceso de enseñanza-aprendizaje en la 
+      Escuela de Física de la UNAH.
+    </p>
+  </div>
+
+</div>
+{% endblock %}

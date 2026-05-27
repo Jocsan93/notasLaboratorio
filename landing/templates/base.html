@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     {% load static %}
+    <link rel="icon" type="image/x-icon" href="{% static 'IMG/favicon.png'%}">
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
     {% block extra_css%} {% endblock %}
@@ -31,7 +32,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="#">Sobre nosotros</a>
+          <a class="nav-link" href="{%url 'sobreNosotros'%}">Sobre nosotros</a>
         </li>
 
         <li class="nav-item">

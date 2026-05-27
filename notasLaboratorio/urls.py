@@ -4,5 +4,6 @@ from landing import views as landingViews
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', landingViews.index, name="")
+    path('', landingViews.index, name=""),
+    path('sobreNosotros', landingViews.aboutUs, name="sobreNosotros"),
 ]

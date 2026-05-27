@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load static %}
+{% block extra_css%} 
+    <link rel="stylesheet" href="{% static 'css/aboutUs.css' %}">
+{% endblock %}
+{% block content %}
+
+<div class="info-container">
+
+  <div class="info-card authority">
+    <img src="{% static 'IMG/director.jpg'%}" alt="Director de la Escuela">
+    <div class="authority-info">
+      <h3>M.Sc. Ramón Enrique Chávez Obando</h3>
+      <p>Director de la Escuela de Física</p>
+      <p>ramon.chavez@unah.edu.hn</p>
+    </div>
+  </div>
+
+  <div class="info-card authority">
+    <img src="{% static 'IMG/jefe1.jpeg'%}"  alt="Jefe de Departamento">
+    <div class="authority-info">
+      <h3>Dr. Carlos Eduardo Gabarrete Fajardo</h3>
+      <p>Jefa del Departamento de Física de Gravitaciones y Altas Energías</p>
+      <p>carlos.gabarete@unah.edu.hn</p>
+    </div>
+  </div>
+
+  <div class="info-card authority">
+    <img src="{% static 'IMG/jefe2.jpg'%}"  alt="Jefe de Departamento">
+    <div class="authority-info">
+      <h3>M.Sc. José Jorge Escobar Figueroa</h3>
+      <p>Jefe del Departamento de Física de la Tierra</p>
+      <p>jose.escobar@unah.edu.hn</p>
+    </div>
+  </div>
+
+  <div class="info-card authority">
+    <img src="{% static 'IMG/coordinador.jpg'%}" alt="Coordinador de Carrera">
+    <div class="authority-info">
+      <h3>M.Sc. Lucio David Villanueva Castillo</h3>
+      <p>Coordinador de la Carrera de Física</p>
+      <p>lucio.villanueva@unah.edu.hn</p>
+    </div>
+  </div>
+
+  <div class="info-card authority">
+    <img src="{% static 'IMG/coordinadorlabs.jpeg'%}"  alt="Coordinador de Laboratorio">
+    <div class="authority-info">
+      <h3>M.Sc. Cristian Joel Ordoñez Martinez</h3>
+      <p>Coordinador de Laboratorios de Física</p>
+      <p>cristian.ordonez@unah.edu.hn</p>
+    </div>
+  </div>
+
+  <div class="info-card authority">
+    <img src="{% static 'IMG/admin.jpg'%}"  alt="Administrador del Sistema">
+    <div class="authority-info">
+      <h3>Ing. Lorenzo David Nuñez Soriano</h3>
+      <p>Administrador del Sistema</p>
+      <p>lorenzo.nunez@unah.edu.hn</p>
+    </div>
+  </div>
+
+</div>
+{% endblock %}

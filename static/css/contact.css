@@ -1,0 +1,64 @@
+.info-container {
+    width: 98%;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column; /* 👈 ahora vertical */
+    gap: 15px;
+}
+
+/* CARD BASE */
+.info-card {
+    background-color: whitesmoke;
+    border-left: 5px solid rgba(35, 57, 105);
+    padding: 25px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    width: 100%; /* 👈 más anchas */
+}
+
+/* HOVER REAL */
+.info-card:hover {
+    transform: translateX(12px); /* 👈 sí se mueve ahora */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+/* CTA CENTER */
+.cta {
+    text-align: center;
+}
+
+/* ICONOS */
+.cta-icon {
+    margin-bottom: 10px;
+}
+
+/* TITULOS */
+.info-card h3 {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #1f2a44;
+}
+
+/* TEXTO */
+.info-card p {
+    margin: 5px 0;
+    color: #333;
+    line-height: 1.5;
+}
+
+/* BOTÓN CONSISTENTE */
+.btn-blue {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 10px 18px;
+    background-color: rgba(35, 57, 105);
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn-blue:hover {
+    background-color: rgba(25, 40, 80);
+    transform: scale(1.03);
+}

@@ -6,4 +6,8 @@ def index(request):
 
 #pagina sobre nosotros
 def aboutUs(request):
-    return render(request, "aboutUs.html", {})    
+    return render(request, "aboutUs.html", {})   
+
+#pagina contactanos
+def contact(request):
+    return render(request, "contact.html", {})     

@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+{% block extra_css%} 
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+{% endblock %}
+{% block content %}
+<div class="info-container">
+
+  <!-- Facebook -->
+  <div class="info-card cta">
+
+    <div class="cta-icon">
+      <!-- Facebook SVG -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="#233969" viewBox="0 0 24 24">
+        <path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-3h2.5V9.5c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.7-1.6 1.5V12H17l-.4 3h-2.5v7A10 10 0 0 0 22 12z"/>
+      </svg>
+    </div>
+
+    <h3>Síguenos en Facebook</h3>
+    <p>Mantente al día con anuncios, noticias y actividades de la Escuela de Física, así como la distribución 
+        semanal de laboratorios.</p>
+
+    <a class="btn-blue" href="https://www.facebook.com/fisica.unah.edu.hn" target="_blank">
+      Ir a la página
+    </a>
+  </div>
+
+  <!-- Contacto -->
+  <div class="info-card cta">
+
+    <div class="cta-icon">
+      <!-- Mail SVG -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="#233969" viewBox="0 0 24 24">
+        <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+      </svg>
+    </div>
+
+    <h3>¿Tienes dudas, preguntas o sugerencias?</h3>
+    <p>Contáctanos directamente y te responderemos lo antes posible.</p>
+
+    <p><strong>lorenzo.nunez@unah.edu.hn</strong></p>
+    <p>📍 Primer piso del E1, Área de Recursos Informáticos</p>
+
+    <a class="btn-blue" href="mailto:lorenzo.nunez@unah.edu.hn">
+      Enviar correo
+    </a>
+  </div>
+
+</div>
+{% endblock %}

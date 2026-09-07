@@ -1,0 +1,45 @@
+{% extends "landing/base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/perfil_admin.css' %}?v=1">
+{% endblock %}
+
+{% block content %}
+
+<div class="admin-layout">
+
+    <!--Barra lateral-->
+        {% include "users/admin_sidebar.html" %}
+
+    <!-- Contenido principal -->
+    <main class="admin-content">
+
+        <div class="admin-header">
+            <h1>Panel de administración</h1>
+
+            <p>
+                Bienvenido, {{ user.email }}
+            </p>
+        </div>
+
+
+        <section class="admin-dashboard">
+
+            <div class="dashboard-card">
+                <h2>Inicio</h2>
+
+                <p>
+                    Desde este panel podrá administrar los diferentes
+                    componentes del sistema de laboratorio.
+                </p>
+            </div>
+
+
+        </section>
+
+    </main>
+
+</div>
+
+{% endblock %}

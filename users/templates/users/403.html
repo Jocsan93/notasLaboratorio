@@ -1,0 +1,22 @@
+{% extends "landing/base.html" %}
+
+{% block content %}
+
+<div class="error-page">
+
+    <h1>403</h1>
+
+    <h2>Acceso no autorizado</h2>
+
+    <p>
+        No tiene los permisos necesarios para acceder a esta página.
+    </p>
+
+    <a href="{% url '' %}">
+        Volver al inicio
+    </a>
+
+</div>
+
+{% endblock %}
+

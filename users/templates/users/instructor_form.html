@@ -1,0 +1,214 @@
+{% load static %}
+
+<div class="registration-form-card">
+
+    <div class="registration-form-header">
+
+        <h2>Registrar instructor</h2>
+
+        <p>
+            Complete la información para registrar un nuevo
+            instructor del sistema.
+        </p>
+
+    </div>
+
+
+    {% if success %}
+
+        <div class="registration-success">
+
+            <strong>
+                ¡Instructor registrado correctamente!
+            </strong>
+
+            <p>
+                El instructor fue añadido exitosamente al sistema.
+            </p>
+
+            <p>
+                Número de instructor asignado:
+                <strong>{{ numero_instructor }}</strong>
+            </p>
+
+        </div>
+
+    {% endif %}
+
+
+    <!-- Número de instructor -->
+
+    <div class="instructor-number">
+
+        <span class="instructor-number-label">
+            Número de instructor
+        </span>
+
+        <span class="instructor-number-value">
+            {{ numero_instructor }}
+        </span>
+
+        <small class="form-help">
+            Este número será asignado automáticamente.
+        </small>
+
+    </div>
+
+
+    <form
+        method="POST"
+        id="instructor-registration-form"
+    >
+
+        {% csrf_token %}
+
+
+        <!-- Correo -->
+
+        <div class="form-group">
+
+            <label for="{{ form.email.id_for_label }}">
+                {{ form.email.label }}
+            </label>
+
+            {{ form.email }}
+
+            {% if form.email.errors %}
+
+                <div class="form-error">
+                    {{ form.email.errors }}
+                </div>
+
+            {% endif %}
+
+        </div>
+
+
+        <!-- Nombre completo -->
+
+        <div class="form-group">
+
+            <label for="{{ form.nombre_completo.id_for_label }}">
+                {{ form.nombre_completo.label }}
+            </label>
+
+            {{ form.nombre_completo }}
+
+            {% if form.nombre_completo.errors %}
+
+                <div class="form-error">
+                    {{ form.nombre_completo.errors }}
+                </div>
+
+            {% endif %}
+
+        </div>
+
+
+        <!-- Contraseña -->
+
+        <div class="form-group">
+
+            <label for="{{ form.password.id_for_label }}">
+                {{ form.password.label }}
+            </label>
+
+            <div class="password-input-container">
+
+                {{ form.password }}
+
+                <button
+                    type="button"
+                    id="toggle-password"
+                    class="password-toggle-button"
+                    aria-label="Mostrar contraseña"
+                >
+                    👁
+                </button>
+
+                <button
+                    type="button"
+                    id="generate-password"
+                    class="generate-password-button"
+                >
+                    Generar
+                </button>
+
+            </div>
+
+            <small class="form-help">
+                La contraseña debe tener al menos 8 caracteres.
+            </small>
+
+            {% if form.password.errors %}
+
+                <div class="form-error">
+                    {{ form.password.errors }}
+                </div>
+
+            {% endif %}
+
+        </div>
+
+
+        <!-- Confirmar contraseña -->
+
+        <div class="form-group">
+
+            <label for="{{ form.confirm_password.id_for_label }}">
+                {{ form.confirm_password.label }}
+            </label>
+
+            <div class="password-input-container">
+
+                {{ form.confirm_password }}
+
+
+            </div>
+
+            {% if form.confirm_password.errors %}
+
+                <div class="form-error">
+                    {{ form.confirm_password.errors }}
+                </div>
+
+            {% endif %}
+
+        </div>
+
+
+        <!-- Errores generales -->
+
+        {% if form.non_field_errors %}
+
+            <div class="form-error">
+                {{ form.non_field_errors }}
+            </div>
+
+        {% endif %}
+
+
+        <!-- Botones -->
+
+        <div class="registration-form-actions">
+
+            <button
+                type="submit"
+                class="registration-button"
+            >
+                Registrar instructor
+            </button>
+
+            <button
+                type="button"
+                id="cancel-registration"
+                class="registration-cancel-button"
+            >
+                Cancelar
+            </button>
+
+        </div>
+
+    </form>
+
+</div>

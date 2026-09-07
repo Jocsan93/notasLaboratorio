@@ -1,0 +1,268 @@
+/* ================================
+   CONTENIDO PRINCIPAL
+   ================================ */
+
+.admin-content {
+    flex: 1;
+    padding: 40px 50px;
+}
+
+
+/* ================================
+   ENCABEZADO
+   ================================ */
+
+.admin-header {
+    margin-bottom: 30px;
+}
+
+.admin-header h1 {
+    margin: 0 0 8px;
+    color: #003b7a;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.admin-header p {
+    margin: 0;
+    color: #666;
+    font-size: 1rem;
+}
+
+
+/* ================================
+   TARJETA DE INFORMACIÓN
+   ================================ */
+
+.registration-info {
+    margin-bottom: 35px;
+}
+
+.registration-info-card {
+    background-color: #f8f7f2;
+    border: 1px solid #e1e1dc;
+    border-left: 5px solid #003b7a;
+    border-radius: 10px;
+    padding: 25px 30px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.registration-info-card h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #003b7a;
+    font-size: 1.35rem;
+}
+
+.registration-info-card p {
+    margin: 8px 0;
+    color: #555;
+    line-height: 1.6;
+}
+
+
+/* ================================
+   ADVERTENCIA
+   ================================ */
+
+.registration-warning {
+    margin-top: 20px !important;
+    padding: 12px 15px;
+    background-color: #fff8e6;
+    border-radius: 6px;
+    color: #765d00 !important;
+    font-size: 0.95rem;
+}
+
+
+/* ================================
+   OPCIONES DE REGISTRO
+   ================================ */
+
+.registration-options {
+    margin-bottom: 35px;
+}
+
+.registration-options > h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 1.35rem;
+    font-weight: 500;
+}
+
+
+/* ================================
+   TARJETAS
+   ================================ */
+
+.registration-cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+    gap: 22px;
+}
+
+.registration-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    background-color: #f8f7f2;
+    border: 1px solid #e1e1dc;
+    border-radius: 12px;
+
+    padding: 30px 25px;
+
+    min-height: 230px;
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.registration-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.09);
+    border-color: #003b7a;
+}
+
+
+/* ================================
+   ICONOS
+   ================================ */
+
+.registration-card-icon {
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 15px;
+
+    border-radius: 50%;
+
+    background-color: #e8f0f8;
+    color: #003b7a;
+}
+
+.registration-card-icon svg {
+    width: 26px;
+    height: 26px;
+}
+
+
+/* ================================
+   TEXTO DE LAS TARJETAS
+   ================================ */
+
+.registration-card h3 {
+    margin: 0 0 10px;
+
+    color: #003b7a;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.registration-card p {
+    margin: 0 0 20px;
+
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.5;
+
+    flex: 1;
+}
+
+
+/* ================================
+   BOTONES
+   ================================ */
+
+.registration-button {
+    width: 100%;
+    max-width: 220px;
+
+    padding: 11px 20px;
+
+    border: 2px solid #003b7a;
+    border-radius: 7px;
+
+    background-color: #003b7a;
+    color: white;
+
+    font-size: 0.95rem;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.15s ease,
+        box-shadow 0.2s ease;
+}
+
+.registration-button:hover {
+    background-color: #0056a6;
+    border-color: #0056a6;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 4px 10px rgba(0, 59, 122, 0.25);
+}
+
+.registration-button:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+.registration-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 59, 122, 0.2);
+}
+
+
+/* ================================
+   CONTENEDOR DEL FORMULARIO
+   ================================ */
+
+.registration-form-container {
+    margin-top: 30px;
+}
+
+
+/* ================================
+   RESPONSIVE
+   ================================ */
+
+@media (max-width: 900px) {
+
+    .admin-content {
+        padding: 30px;
+    }
+
+    .registration-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .admin-content {
+        padding: 20px;
+    }
+
+    .registration-info-card {
+        padding: 20px;
+    }
+
+    .registration-card {
+        padding: 25px 20px;
+    }
+}

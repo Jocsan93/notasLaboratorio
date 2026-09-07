@@ -1,0 +1,482 @@
+/* =========================================================
+   SECCIONES DE TEORÍA
+   ========================================================= */
+
+/* =========================================================
+   ENCABEZADO DE SECCIONES DE TEORÍA
+   ========================================================= */
+
+.theory-tabs-container {
+    margin-top: 25px;
+}
+
+.admin-header {
+    background-color: #ffffff;
+
+    border: 1px solid #e5e7eb;
+    border-left: 5px solid #1f4e79;
+
+    border-radius: 8px;
+
+    padding: 22px 25px;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.admin-header h1 {
+    margin-bottom: 8px;
+
+    color: #1f2937;
+
+    font-size: 1.7rem;
+    font-weight: 600;
+}
+
+.admin-header p {
+    margin: 0;
+
+    color: #6b7280;
+
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+/* =========================================================
+   ENCABEZADO
+   ========================================================= */
+
+.theory-header {
+    width: 100%;
+
+    background-color: #ffffff;
+
+    border: 1px solid #e5e7eb;
+    border-left: 5px solid #1f4e79;
+
+    border-radius: 8px;
+
+    padding: 22px 25px;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.theory-header h1 {
+    margin: 0 0 8px 0;
+
+    color: #1f2937;
+
+    font-size: 1.7rem;
+    font-weight: 600;
+}
+
+.theory-header p {
+    margin: 0;
+
+    color: #6b7280;
+
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   CONTENEDOR DE PESTAÑAS
+   ========================================================= */
+
+.theory-tabs-container {
+    width: 100%;
+    margin-top: 25px;
+}
+
+
+/* =========================================================
+   PESTAÑAS
+   ========================================================= */
+
+.theory-tabs {
+    border-bottom: 2px solid #e5e7eb;
+    gap: 5px;
+}
+
+.theory-tabs .nav-link {
+    color: #6b7280;
+
+    background: transparent;
+
+    border: none;
+    border-bottom: 3px solid transparent;
+
+    padding: 12px 22px;
+
+    font-size: 0.95rem;
+    font-weight: 600;
+
+    transition:
+        color 0.2s ease,
+        border-color 0.2s ease,
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+/* Hover */
+
+.theory-tabs .nav-link:hover {
+    color: #1f4e79;
+
+    background-color: #f8fafc;
+
+    transform: translateY(-2px);
+}
+
+
+/* Pestaña activa */
+
+.theory-tabs .nav-link.active {
+    color: #1f4e79;
+
+    background-color: transparent;
+
+    border-color: #1f4e79;
+}
+
+
+/* =========================================================
+   CONTENIDO DE LAS PESTAÑAS
+   ========================================================= */
+
+.theory-tab-content {
+    padding-top: 25px;
+}
+
+
+/* =========================================================
+   CONTENEDOR AJAX
+   ========================================================= */
+
+.theory-content-container {
+    width: 100%;
+
+    min-height: 250px;
+
+    background-color: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 10px;
+
+    padding: 30px;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+/* =========================================================
+   PLACEHOLDER
+   ========================================================= */
+
+.theory-placeholder {
+    min-height: 190px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    color: #6b7280;
+}
+
+.theory-placeholder h2 {
+    margin-bottom: 10px;
+
+    color: #374151;
+
+    font-size: 1.35rem;
+    font-weight: 600;
+}
+
+.theory-placeholder p {
+    margin: 0;
+
+    max-width: 600px;
+
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .theory-header {
+        padding: 20px;
+    }
+
+    .theory-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .theory-tabs {
+        gap: 0;
+    }
+
+    .theory-tabs .nav-link {
+        padding: 10px 14px;
+
+        font-size: 0.9rem;
+    }
+
+    .theory-content-container {
+        padding: 20px;
+    }
+
+}
+
+
+@media (max-width: 576px) {
+
+    .theory-tabs {
+        flex-wrap: wrap;
+    }
+
+    .theory-tabs .nav-link {
+        width: 100%;
+
+        text-align: left;
+
+        border-bottom: none;
+        border-left: 3px solid transparent;
+    }
+
+    .theory-tabs .nav-link.active {
+        border-left-color: #1f4e79;
+        border-bottom-color: transparent;
+    }
+
+}
+
+/* =========================================================
+   FORMULARIO DE CARGA DE SECCIONES
+   ========================================================= */
+
+.theory-upload-form {
+    width: 100%;
+}
+
+
+/* =========================================================
+   ENCABEZADO DEL FORMULARIO
+   ========================================================= */
+
+.theory-upload-header {
+    margin-bottom: 25px;
+}
+
+.theory-upload-header h2 {
+    margin: 0 0 8px 0;
+
+    color: #1f2937;
+
+    font-size: 1.35rem;
+    font-weight: 600;
+}
+
+.theory-upload-header p {
+    margin: 0;
+
+    color: #6b7280;
+
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   ADVERTENCIA
+   ========================================================= */
+
+.theory-upload-header::after {
+    content:
+        "⚠  Recuerde utilizar el archivo Excel descargado "
+        "directamente del portal institucional.";
+
+    display: block;
+
+    margin-top: 20px;
+
+    padding: 13px 16px;
+
+    background-color: #fff8e1;
+
+    border: 1px solid #f3d27a;
+    border-left: 4px solid #e0a800;
+
+    border-radius: 6px;
+
+    color: #795600;
+
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   GRUPO DEL FORMULARIO
+   ========================================================= */
+
+.theory-upload-form .form-group {
+    margin-bottom: 20px;
+}
+
+.theory-upload-form .form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #374151;
+
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   SELECTOR DE ARCHIVO
+   ========================================================= */
+
+.theory-upload-form input[type="file"] {
+    width: 100%;
+
+    padding: 10px 12px;
+
+    background-color: #ffffff;
+
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+
+    color: #4b5563;
+
+    font-size: 0.9rem;
+
+    cursor: pointer;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.theory-upload-form input[type="file"]:hover {
+    border-color: #1f4e79;
+}
+
+.theory-upload-form input[type="file"]:focus {
+    border-color: #1f4e79;
+
+    outline: none;
+
+    box-shadow: 0 0 0 3px rgba(31, 78, 121, 0.1);
+}
+
+
+/* =========================================================
+   BOTÓN DE CARGA
+   ========================================================= */
+
+.theory-upload-form .registration-form-actions {
+    display: flex;
+
+    justify-content: flex-start;
+
+    margin-top: 10px;
+}
+
+
+/* =========================================================
+   ERRORES
+   ========================================================= */
+
+.theory-upload-form .form-error {
+    margin-top: 7px;
+
+    color: #b91c1c;
+
+    font-size: 0.85rem;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 576px) {
+
+    .theory-upload-header h2 {
+        font-size: 1.2rem;
+    }
+
+    .theory-upload-header::after {
+        font-size: 0.85rem;
+    }
+
+    .theory-upload-form input[type="file"] {
+        font-size: 0.85rem;
+    }
+
+}
+
+/* =========================================================
+   BOTÓN CARGAR ARCHIVO
+   ========================================================= */
+
+.theory-upload-form .registration-button {
+    padding: 10px 22px;
+
+    background-color: #1f4e79;
+
+    border: 1px solid #1f4e79;
+    border-radius: 6px;
+
+    color: #ffffff;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.theory-upload-form .registration-button:hover {
+    background-color: #173a5c;
+    border-color: #173a5c;
+
+    transform: translateY(-1px);
+
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.12);
+}
+
+.theory-upload-form .registration-button:active {
+    transform: translateY(0);
+
+    box-shadow: none;
+}
+
+.theory-upload-form .registration-button:focus {
+    outline: none;
+
+    box-shadow:
+        0 0 0 3px rgba(31, 78, 121, 0.15);
+}

@@ -1,0 +1,56 @@
+<div class="theory-upload-form">
+
+    <div class="theory-upload-header">
+
+        <h2>Cargar secciones</h2>
+
+        <p>
+            Seleccione el archivo Excel descargado del
+            sistema institucional.
+        </p>
+
+    </div>
+
+
+    <form
+        method="POST"
+        enctype="multipart/form-data"
+        id="theory-upload-form"
+    >
+
+        {% csrf_token %}
+
+
+        <div class="form-group">
+
+            <label for="{{ form.archivo.id_for_label }}">
+                {{ form.archivo.label }}
+            </label>
+
+            {{ form.archivo }}
+
+            {% if form.archivo.errors %}
+
+                <div class="form-error">
+                    {{ form.archivo.errors }}
+                </div>
+
+            {% endif %}
+
+        </div>
+
+
+        <div class="registration-form-actions">
+
+            <button
+                type="submit"
+                class="registration-button"
+            >
+                Cargar archivo
+            </button>
+
+        </div>
+
+    </form>
+
+</div>

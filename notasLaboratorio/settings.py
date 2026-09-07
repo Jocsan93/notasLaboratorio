@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'landing'
+    'landing', 
+    'users',
+    'theory',
 ]
 
 MIDDLEWARE = [
@@ -122,3 +124,7 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
+
+#Usuarios:
+AUTH_USER_MODEL = "users.User"
+LOGIN_URL = "login"

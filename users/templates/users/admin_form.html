@@ -1,0 +1,140 @@
+{% load static %}
+
+<div class="registration-form-card">
+
+    <div class="registration-form-header">
+
+        <h2>Registrar administrador</h2>
+
+        <p>
+            Complete la información para registrar un nuevo
+            administrador del sistema.
+        </p>
+
+    </div>
+    {% if success %}
+
+    <div class="registration-success">
+        <strong>¡Usuario registrado correctamente!</strong>
+
+        <p>
+            El administrador fue añadido exitosamente al sistema.
+        </p>
+    </div>
+
+{% endif %}
+
+    <form method="POST" id="admin-registration-form">
+
+        {% csrf_token %}
+
+        <!-- Correo -->
+        <div class="form-group">
+
+            <label for="{{ form.email.id_for_label }}">
+                {{ form.email.label }}
+            </label>
+
+            {{ form.email }}
+
+            {% if form.email.errors %}
+                <div class="form-error">
+                    {{ form.email.errors }}
+                </div>
+            {% endif %}
+
+        </div>
+
+
+        <!-- Contraseña -->
+        <div class="form-group">
+
+            <label for="{{ form.password.id_for_label }}">
+                {{ form.password.label }}
+            </label>
+
+            <div class="password-input-container">
+
+                {{ form.password }}
+
+                <button
+                    type="button"
+                    id="toggle-password"
+                    class="password-toggle-button"
+                    aria-label="Mostrar contraseña"
+                >
+                    👁
+                </button>
+
+                <button
+                    type="button"
+                    id="generate-password"
+                    class="generate-password-button"
+                >
+                    Generar
+                </button>
+
+            </div>
+
+            <small class="form-help">
+                La contraseña debe tener al menos 8 caracteres.
+            </small>
+
+            {% if form.password.errors %}
+                <div class="form-error">
+                    {{ form.password.errors }}
+                </div>
+            {% endif %}
+
+        </div>
+
+
+        <!-- Confirmar contraseña -->
+        <div class="form-group">
+
+            <label for="{{ form.confirm_password.id_for_label }}">
+                {{ form.confirm_password.label }}
+            </label>
+
+            {{ form.confirm_password }}
+
+            {% if form.confirm_password.errors %}
+                <div class="form-error">
+                    {{ form.confirm_password.errors }}
+                </div>
+            {% endif %}
+
+        </div>
+
+
+        <!-- Errores generales -->
+        {% if form.non_field_errors %}
+            <div class="form-error">
+                {{ form.non_field_errors }}
+            </div>
+        {% endif %}
+
+
+        <!-- Botones -->
+        <div class="registration-form-actions">
+
+            <button
+                type="submit"
+                class="registration-button"
+            >
+                Registrar administrador
+            </button>
+
+            <button
+                type="button"
+                id="cancel-registration"
+                class="registration-cancel-button"
+            >
+                Cancelar
+            </button>
+
+        </div>
+
+    </form>
+
+</div>

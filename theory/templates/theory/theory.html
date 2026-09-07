@@ -1,0 +1,229 @@
+{% extends "landing/base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/perfil_admin.css' %}?v=1">
+<link rel="stylesheet" href="{% static 'css/theory.css' %}?v=2">
+{% endblock %}
+
+{% block content %}
+
+<div class="admin-layout">
+
+    <!-- Barra lateral -->
+    {% include "users/admin_sidebar.html" %}
+
+
+    <!-- Contenido principal -->
+    <main class="admin-content">
+
+        <!-- Encabezado -->
+
+        <div class="admin-header">
+
+            <h1>Secciones de teoría</h1>
+
+            <p>
+                Gestión y consulta de las secciones de teoría
+                del laboratorio.
+            </p>
+
+        </div>
+
+
+        <!-- Navegación de pestañas -->
+
+        <div class="theory-tabs-container">
+
+            <ul
+                class="nav nav-tabs theory-tabs"
+                id="theoryTabs"
+                role="tablist"
+            >
+
+                <!-- Subir secciones -->
+
+                <li class="nav-item" role="presentation">
+
+                    <button
+                        class="nav-link active"
+                        id="upload-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#upload-content"
+                        type="button"
+                        role="tab"
+                        aria-controls="upload-content"
+                        aria-selected="true"
+                    >
+                        Subir secciones
+                    </button>
+
+                </li>
+
+
+                <!-- Ver secciones -->
+
+                <li class="nav-item" role="presentation">
+
+                    <button
+                        class="nav-link"
+                        id="sections-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#sections-content"
+                        type="button"
+                        role="tab"
+                        aria-controls="sections-content"
+                        aria-selected="false"
+                    >
+                        Ver secciones
+                    </button>
+
+                </li>
+
+
+                <!-- Buscar secciones -->
+
+                <li class="nav-item" role="presentation">
+
+                    <button
+                        class="nav-link"
+                        id="search-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#search-content"
+                        type="button"
+                        role="tab"
+                        aria-controls="search-content"
+                        aria-selected="false"
+                    >
+                        Buscar
+                    </button>
+
+                </li>
+
+            </ul>
+
+
+            <!-- Contenido de las pestañas -->
+
+            <div
+                class="tab-content theory-tab-content"
+                id="theoryTabContent"
+            >
+
+                <!-- ================================================= -->
+                <!-- SUBIR SECCIONES -->
+                <!-- ================================================= -->
+
+                <div
+                    class="tab-pane fade show active"
+                    id="upload-content"
+                    role="tabpanel"
+                    aria-labelledby="upload-tab"
+                    tabindex="0"
+                >
+
+                    <div
+                        id="upload-sections-container"
+                        class="theory-content-container"
+                    >
+
+                        <div class="theory-placeholder">
+
+                            <h2>
+                                Subir secciones
+                            </h2>
+
+                            <p>
+                                Aquí podrá cargar el archivo Excel
+                                con las secciones de teoría.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================================================= -->
+                <!-- VER SECCIONES -->
+                <!-- ================================================= -->
+
+                <div
+                    class="tab-pane fade"
+                    id="sections-content"
+                    role="tabpanel"
+                    aria-labelledby="sections-tab"
+                    tabindex="0"
+                >
+
+                    <div
+                        id="sections-list-container"
+                        class="theory-content-container"
+                    >
+
+                        <div class="theory-placeholder">
+
+                            <h2>
+                                Secciones de teoría
+                            </h2>
+
+                            <p>
+                                Aquí se mostrarán todas las
+                                secciones registradas.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================================================= -->
+                <!-- BUSCAR -->
+                <!-- ================================================= -->
+
+                <div
+                    class="tab-pane fade"
+                    id="search-content"
+                    role="tabpanel"
+                    aria-labelledby="search-tab"
+                    tabindex="0"
+                >
+
+                    <div
+                        id="search-sections-container"
+                        class="theory-content-container"
+                    >
+
+                        <div class="theory-placeholder">
+
+                            <h2>
+                                Buscar secciones
+                            </h2>
+
+                            <p>
+                                Aquí podrá buscar y filtrar
+                                las secciones de teoría.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/theory.js' %}?v=1"></script>
+{% endblock %}

@@ -1,0 +1,70 @@
+{% if secciones %}
+
+    <div class="table-responsive">
+
+        <table class="table theory-sections-table-content">
+
+            <thead>
+
+                <tr>
+                    <th>Profesor</th>
+                    <th>Sección</th>
+                    <th>Física</th>
+                    <th>Matriculados</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for seccion in secciones %}
+
+                    <tr
+                        class="theory-section-row"
+                        data-profesor="{{ seccion.profesor }}"
+                        data-seccion="{{ seccion.seccion }}"
+                        data-fisica="{{ seccion.fisica }}"
+                    >
+
+                        <td>
+                            {{ seccion.profesor }}
+                        </td>
+
+                        <td>
+                            {{ seccion.seccion }}
+                        </td>
+
+                        <td>
+                            {{ seccion.fisica }}
+                        </td>
+
+                        <td>
+                            {{ seccion.matriculados }}
+                        </td>
+
+                    </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+{% else %}
+
+    <div class="theory-sections-empty">
+
+        <h2>
+            No se encontraron secciones
+        </h2>
+
+        <p>
+            No existen secciones que coincidan
+            con el nombre del profesor ingresado.
+        </p>
+
+    </div>
+
+{% endif %}

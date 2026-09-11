@@ -1,56 +1,140 @@
 <div class="theory-upload-form">
 
-    <div class="theory-upload-header">
+    {% if carga_exitosa %}
 
-        <h2>Cargar secciones</h2>
+        <div class="theory-upload-success">
 
-        <p>
-            Seleccione el archivo Excel descargado del
-            sistema institucional.
-        </p>
+            <div class="theory-upload-already-icon">
+                ✓
+            </div>
 
-    </div>
+            <div class="theory-upload-success-content">
 
+                <h2>
+                    Carga completada correctamente
+                </h2>
 
-    <form
-        method="POST"
-        enctype="multipart/form-data"
-        id="theory-upload-form"
-    >
+                <p>
+                    El archivo fue procesado y los registros
+                    fueron guardados exitosamente en el sistema.
+                </p>
 
-        {% csrf_token %}
+                <div class="theory-upload-success-count">
 
+                    <strong>
+                        {{ cantidad_registros }}
+                    </strong>
 
-        <div class="form-group">
+                    <span>
+                        registros cargados
+                    </span>
 
-            <label for="{{ form.archivo.id_for_label }}">
-                {{ form.archivo.label }}
-            </label>
-
-            {{ form.archivo }}
-
-            {% if form.archivo.errors %}
-
-                <div class="form-error">
-                    {{ form.archivo.errors }}
                 </div>
 
-            {% endif %}
+            </div>
+
+        </div>
+
+    {% elif registros_existentes %}
+
+        <div class="theory-upload-already-icon">
+
+                ✓
+            </div>
+
+            <div class="theory-upload-already-content">
+
+                <h2>
+                    Secciones ya cargadas
+                </h2>
+
+                <p>
+                    Ya existen datos de secciones de teoría
+                    registrados actualmente en el sistema.
+                </p>
+
+                <div class="theory-upload-count">
+
+                    <strong>
+                        {{ cantidad_registros }}
+                    </strong>
+
+                    <span>
+                        estudiantes registrados
+                    </span>
+
+                </div>
+
+                <div class="alert alert-warning">
+
+                    <strong>Importante:</strong>
+                    si desea cargar un nuevo archivo, primero
+                    debe eliminar los registros actuales desde
+                    la sección de administración de secciones.
+
+                </div>
+
+            </div>
+
+        </div>
+
+    {% else %}
+
+        <div class="theory-upload-header">
+
+            <h2>
+                Cargar secciones
+            </h2>
+
+            <p>
+                Seleccione el archivo Excel descargado del
+                sistema institucional.
+            </p>
 
         </div>
 
 
-        <div class="registration-form-actions">
+        <form
+            method="POST"
+            enctype="multipart/form-data"
+            id="theory-upload-form"
+        >
 
-            <button
-                type="submit"
-                class="registration-button"
-            >
-                Cargar archivo
-            </button>
+            {% csrf_token %}
 
-        </div>
 
-    </form>
+            <div class="form-group">
+
+                <label for="{{ form.archivo.id_for_label }}">
+                    {{ form.archivo.label }}
+                </label>
+
+                {{ form.archivo }}
+
+                {% if form.archivo.errors %}
+
+                    <div class="form-error">
+                        {{ form.archivo.errors }}
+                    </div>
+
+                {% endif %}
+
+            </div>
+
+
+            <div class="registration-form-actions">
+
+                <button
+                    type="submit"
+                    class="registration-button"
+                >
+                    Cargar archivo
+                </button>
+
+            </div>
+
+        </form>
+
+    {% endif %}
 
 </div>

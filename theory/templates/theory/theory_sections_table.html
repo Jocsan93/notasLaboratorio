@@ -1,0 +1,214 @@
+
+<div class="theory-sections-table">
+
+    <div class="theory-sections-header">
+
+        <div>
+            <h2>
+                Secciones registradas
+            </h2>
+
+            <p>
+                Listado de las secciones de teoría actualmente
+                registradas en el sistema.
+            </p>
+        </div>
+
+        <div class="theory-sections-total">
+
+            <strong>
+                {{ paginator.count }}
+            </strong>
+
+            <span>
+                secciones
+            </span>
+
+        </div>
+
+    </div>
+
+
+    {% if secciones %}
+
+        <div class="table-responsive">
+
+            <table class="table theory-sections-table-content">
+
+                <thead>
+
+                    <tr>
+                        <th>
+                            Profesor
+                        </th>
+
+                        <th>
+                            Sección
+                        </th>
+
+                        <th>
+                            Física
+                        </th>
+
+                        <th>
+                            Matriculados
+                        </th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    {% for seccion in secciones %}
+
+                            <tr
+                            class="theory-section-row"
+                            data-profesor="{{ seccion.profesor }}"
+                            data-seccion="{{ seccion.seccion }}"
+                            data-fisica="{{ seccion.fisica }}"
+                            >
+
+                            <td>
+                                {{ seccion.profesor }}
+                            </td>
+
+                            <td>
+                                {{ seccion.seccion }}
+                            </td>
+
+                            <td>
+                                {{ seccion.fisica }}
+                            </td>
+
+                            <td>
+                                {{ seccion.matriculados }}
+                            </td>
+
+                        </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+        <br> <br>
+
+        {% if paginator.num_pages > 1 %}
+
+    <nav
+        aria-label="Navegación de secciones"
+        class="theory-pagination"
+    >
+
+        <ul class="pagination justify-content-center">
+
+            {% if secciones.has_previous %}
+
+                <li class="page-item">
+
+                    <a
+                        class="page-link theory-page-link"
+                        href="?page={{ secciones.previous_page_number }}"
+                        data-page="{{ secciones.previous_page_number }}"
+                    >
+                        Anterior
+                    </a>
+
+                </li>
+
+            {% else %}
+
+                <li class="page-item disabled">
+
+                    <span class="page-link">
+                        Anterior
+                    </span>
+
+                </li>
+
+            {% endif %}
+
+
+            {% for numero in paginator.page_range %}
+
+                {% if numero == secciones.number %}
+
+                    <li class="page-item active">
+
+                        <span class="page-link">
+                            {{ numero }}
+                        </span>
+
+                    </li>
+
+                {% else %}
+
+                    <li class="page-item">
+
+                        <a
+                            class="page-link theory-page-link"
+                            href="?page={{ numero }}"
+                            data-page="{{ numero }}"
+                        >
+                            {{ numero }}
+                        </a>
+
+                    </li>
+
+                {% endif %}
+
+            {% endfor %}
+
+
+            {% if secciones.has_next %}
+
+                <li class="page-item">
+
+                    <a
+                        class="page-link theory-page-link"
+                        href="?page={{ secciones.next_page_number }}"
+                        data-page="{{ secciones.next_page_number }}"
+                    >
+                        Siguiente
+                    </a>
+
+                </li>
+
+            {% else %}
+
+                <li class="page-item disabled">
+
+                    <span class="page-link">
+                        Siguiente
+                    </span>
+
+                </li>
+
+            {% endif %}
+
+        </ul>
+
+    </nav>
+
+{% endif %}
+    {% else %}
+
+        <div class="theory-sections-empty">
+
+            <h2>
+                No hay secciones registradas
+            </h2>
+
+            <p>
+                Actualmente no existen secciones de teoría
+                cargadas en el sistema.
+            </p>
+
+        </div>
+
+    {% endif %}
+
+</div>
+

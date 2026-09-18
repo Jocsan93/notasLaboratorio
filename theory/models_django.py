@@ -31,6 +31,7 @@ class TheoryStudent(Document):
     fisica = StringField(
         max_length=20
     )
+ 
 
     meta = {
         "collection": "theory_students"

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'landing', 
     'users',
     'theory',
+    'lab',
 ]
 
 MIDDLEWARE = [

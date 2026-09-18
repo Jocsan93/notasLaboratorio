@@ -877,3 +877,12 @@
 .theory-search-results {
     width: 100%;
 }
+
+.theory-placeholder img {
+    display: block;
+    max-width: 100%;
+    max-height: 350px;
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+}

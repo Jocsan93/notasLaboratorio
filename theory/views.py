@@ -1,5 +1,5 @@
 import pandas as pd
-from django.contrib.auth.decorators import login_required, user_passes_test
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from .forms import TheoryUploadForm
 from functools import wraps
@@ -9,7 +9,7 @@ from .models_django import TheoryStudent
 from django.core.paginator import Paginator
 from io import BytesIO
 import openpyxl
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 
 
 
@@ -320,6 +320,7 @@ def theory_section_students_excel_view(request):
 @login_required
 @admin_required
 def theory_search_view(request):
+    
 
     profesor = request.GET.get(
         "profesor",
@@ -376,4 +377,25 @@ def theory_search_view(request):
         {
             "secciones": secciones_lista
         }
+    )
+
+@login_required
+@admin_required
+def theory_delete_view(request):
+
+    if request.method == "POST":
+
+        cantidad_eliminada = TheoryStudent.objects.count()
+
+        TheoryStudent.objects.delete()
+
+        return JsonResponse({
+            "success": True,
+            "cantidad_eliminada": cantidad_eliminada
+        })
+
+    return render(
+        request,
+        "theory/theory_delete.html",
+        {}
     )

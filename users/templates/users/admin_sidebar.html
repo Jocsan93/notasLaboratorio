@@ -71,8 +71,8 @@
 
         <!-- SECCIONES DE LABORATORIO -->
         <a
-            href="#"
-            class="sidebar-item {% if request.resolver_match.url_name == 'laboratorio_admin' %}active{% endif %}"
+            href="{%url 'main_lab'%}"
+            class="sidebar-item {% if request.resolver_match.url_name == 'main_lab' %}active{% endif %}"
         >
             <span class="sidebar-icon">
                 <svg xmlns="http://www.w3.org/2000/svg"

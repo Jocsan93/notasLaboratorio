@@ -1,0 +1,223 @@
+{% load static %}
+
+<div class="theory-delete-container">
+
+<!-- Advertencia inicial -->
+
+<div class="alert alert-warning" role="alert">
+
+    <h4 class="alert-heading">
+        Advertencia
+    </h4>
+
+    <p>
+        Esta acción eliminará permanentemente todos los registros
+        de teoría almacenados en el sistema.
+    </p>
+
+    <p>
+        La operación no puede deshacerse y puede afectar la integridad
+        de la base de datos si se ejecuta de forma incorrecta.
+    </p>
+
+    <hr>
+
+    <p class="mb-0">
+        Utilice esta opción únicamente si está completamente seguro
+        y se ha producido un error durante la carga inicial de los datos.
+    </p>
+
+</div>
+
+
+<!-- Botón eliminar -->
+
+<div class="theory-delete-action">
+
+    <button
+        type="button"
+        class="btn btn-danger"
+        data-bs-toggle="modal"
+        data-bs-target="#theoryDeleteWarningModal"
+    >
+        Eliminar
+    </button>
+
+</div>
+
+</div>
+
+<!-- ================================================= -->
+
+<!-- PRIMER MODAL -->
+
+<!-- ================================================= -->
+
+<div
+    class="modal fade"
+    id="theoryDeleteWarningModal"
+    tabindex="-1"
+    aria-labelledby="theoryDeleteWarningModalLabel"
+    aria-hidden="true"
+>
+
+<div class="modal-dialog modal-dialog-centered">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <h5
+                class="modal-title"
+                id="theoryDeleteWarningModalLabel"
+            >
+                ¿Está seguro?
+            </h5>
+
+            <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Cerrar"
+            ></button>
+
+        </div>
+
+
+        <div class="modal-body">
+
+            <p>
+                Está a punto de eliminar todos los registros
+                de estudiantes de teoría.
+            </p>
+
+            <p class="mb-0">
+                Esta acción será permanente y no podrá recuperarse
+                la información eliminada.
+            </p>
+
+        </div>
+
+
+        <div class="modal-footer">
+
+
+
+            <button
+                type="button"
+                class="btn btn-danger"
+                data-bs-toggle="modal"
+                data-bs-target="#theoryDeleteNuclearModal"
+            >
+                Continuar
+            </button>
+
+                        <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+            >
+                Regresar
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+</div>
+
+<!-- ================================================= -->
+
+<!-- SEGUNDO MODAL -->
+
+<!-- ================================================= -->
+
+<div
+    class="modal fade"
+    id="theoryDeleteNuclearModal"
+    tabindex="-1"
+    aria-labelledby="theoryDeleteNuclearModalLabel"
+    aria-hidden="true"
+>
+
+
+<div class="modal-dialog modal-dialog-centered">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <h5
+                class="modal-title"
+                id="theoryDeleteNuclearModalLabel"
+            >
+                ¿Está completamente seguro?
+            </h5>
+
+            <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Cerrar"
+            ></button>
+
+        </div>
+
+
+        <div class="modal-body text-center">
+
+            <div
+                class="display-1 mb-3"
+                aria-hidden="true"
+            >
+                ☢
+            </div>
+
+            <h4>
+                Esta es la opción nuclear
+            </h4>
+
+            <p>
+                Esta operación eliminará
+                <strong>todos los registros de teoría</strong>
+                de la base de datos.
+            </p>
+
+            <p class="mb-0">
+                No se eliminará una sección específica:
+                <strong>se eliminará todo.</strong>
+            </p>
+
+        </div>
+
+
+        <div class="modal-footer justify-content-between">
+
+            <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-toggle="modal"
+                data-bs-target="#theoryDeleteWarningModal"
+            >
+                Regresar
+            </button>
+
+            <button
+                type="button"
+                class="btn btn-danger"
+                id="theory-final-delete-button"
+            >
+                Eliminar
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+</div>

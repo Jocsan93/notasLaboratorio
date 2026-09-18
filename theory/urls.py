@@ -10,4 +10,5 @@ urlpatterns = [
     path("seccion-estudiantes", theory_section_students_view, name="theory_section_students"),
     path("seccion-estudiantes-excel", theory_section_students_excel_view, name="theory_section_students_excel"),
     path("buscar", theory_search_view, name="theory_search"),
+    path("eliminar", theory_delete_view, name="theory_delete"),
 ]

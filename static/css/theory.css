@@ -886,3 +886,202 @@
     height: auto;
     margin: 0 auto;
 }
+
+/* =========================================
+   DEPURAR ESTUDIANTES
+   ========================================= */
+
+.theory-delete-container {
+    width: 100%;
+}
+
+
+/* Encabezado */
+
+.theory-delete-container .theory-search-header {
+    margin-bottom: 25px;
+}
+
+.theory-delete-container .theory-search-header h2 {
+    color: #233969;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.theory-delete-container .theory-search-header p {
+    color: #6c757d;
+    margin-bottom: 0;
+}
+
+
+/* Tarjetas de estadísticas */
+
+.theory-delete-container .card {
+    border: none;
+    border-left: 5px solid #233969;
+    border-radius: 10px;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 8px rgba(35, 57, 105, 0.10);
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.theory-delete-container .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 14px rgba(35, 57, 105, 0.16);
+}
+
+
+.theory-delete-container .card-body {
+    padding: 20px;
+}
+
+
+.theory-delete-container .card h6 {
+    color: #6c757d;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+
+.theory-delete-container .card h3 {
+    color: #233969;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0;
+}
+
+
+/* Tabla */
+
+.theory-delete-container .table-responsive {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(35, 57, 105, 0.10);
+    overflow: hidden;
+}
+
+
+.theory-delete-container table {
+    margin-bottom: 0;
+}
+
+
+.theory-delete-container thead {
+    background-color: #233969;
+    color: #ffffff;
+}
+
+
+.theory-delete-container thead th {
+    border: none;
+    padding: 13px 15px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+
+.theory-delete-container tbody td {
+    padding: 13px 15px;
+    vertical-align: middle;
+}
+
+
+.theory-delete-container tbody tr {
+    transition: background-color 0.15s ease;
+}
+
+
+.theory-delete-container tbody tr:hover {
+    background-color: #f1f5fb;
+}
+
+
+/* Botón eliminar */
+
+.theory-delete-container
+.lab-cleanup-delete-button {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    border-radius: 6px;
+    font-weight: 500;
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.theory-delete-container
+.lab-cleanup-delete-button:hover {
+    background-color: #bb2d3b;
+    border-color: #bb2d3b;
+    transform: translateY(-1px);
+}
+
+
+/* Modales */
+
+#labCleanupWarningModal .modal-content,
+#labCleanupNuclearModal .modal-content {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(35, 57, 105, 0.20);
+}
+
+
+#labCleanupWarningModal .modal-header,
+#labCleanupNuclearModal .modal-header {
+    background-color: #233969;
+    color: #ffffff;
+    border-bottom: none;
+}
+
+
+#labCleanupWarningModal .modal-title,
+#labCleanupNuclearModal .modal-title {
+    font-weight: 600;
+}
+
+
+#labCleanupWarningModal .btn-close,
+#labCleanupNuclearModal .btn-close {
+    filter: brightness(0) invert(1);
+}
+
+
+#labCleanupWarningModal .modal-body,
+#labCleanupNuclearModal .modal-body {
+    padding: 25px;
+}
+
+
+#labCleanupNuclearModal
+#cleanup-student-name,
+#labCleanupNuclearModal
+#cleanup-student-account,
+#labCleanupNuclearModal
+#cleanup-student-email,
+#labCleanupNuclearModal
+#cleanup-student-physics,
+#labCleanupNuclearModal
+#cleanup-student-section {
+    color: #233969;
+    font-weight: 500;
+}
+
+
+/* Botón de eliminación definitiva */
+
+#lab-cleanup-final-delete-button {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+
+#lab-cleanup-final-delete-button:hover {
+    background-color: #bb2d3b;
+    border-color: #bb2d3b;
+}

@@ -1,0 +1,75 @@
+{% if secciones %}
+
+    <div class="table-responsive">
+
+        <table class="table theory-sections-table-content">
+
+            <thead>
+
+                <tr>
+                    <th>Física</th>
+                    <th>Día</th>
+                    <th>Hora</th>
+                    <th>Instructor</th>
+                    <th>Matriculados</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for seccion in secciones %}
+
+                    <tr
+                        class="theory-section-row"
+                        data-fisica="{{ seccion.fisica }}"
+                        data-dia="{{ seccion.dia }}"
+                        data-hora="{{ seccion.hora }}"
+                    >
+
+                        <td>
+                            {{ seccion.fisica }}
+                        </td>
+
+                        <td>
+                            {{ seccion.dia }}
+                        </td>
+
+                        <td>
+                            {{ seccion.hora }}
+                        </td>
+
+                        <td>
+                            {{ seccion.instructor }}
+                        </td>
+
+                        <td>
+                            {{ seccion.matriculados }}
+                        </td>
+
+                    </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+{% else %}
+
+    <div class="theory-sections-empty">
+
+        <h2>
+            No se encontraron secciones
+        </h2>
+
+        <p>
+            No existen secciones que coincidan
+            con el instructor ingresado.
+        </p>
+
+    </div>
+
+{% endif %}

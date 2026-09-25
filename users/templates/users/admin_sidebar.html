@@ -91,8 +91,8 @@
 
         <!-- EMPLEADOS -->
         <a
-            href="#"
-            class="sidebar-item {% if request.resolver_match.url_name == 'empleados_admin' %}active{% endif %}"
+            href="{% url 'main_empleados'%}"
+            class="sidebar-item {% if request.resolver_match.url_name == 'main_empleados' %}active{% endif %}"
         >
             <span class="sidebar-icon">
                 <svg xmlns="http://www.w3.org/2000/svg"

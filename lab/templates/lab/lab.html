@@ -4,7 +4,7 @@
 {% block extra_css %}
 
 <link rel="stylesheet" href="{% static 'css/perfil_admin.css' %}?v=1">
-<link rel="stylesheet" href="{% static 'css/theory.css' %}?v=6">
+<link rel="stylesheet" href="{% static 'css/theory.css' %}?v=7">
 {% endblock %}
 
 {% block content %}
@@ -331,10 +331,7 @@
             >
 
                 <div class="theory-placeholder">
-                        <img
-        src="{% static 'IMG/underConstruction.png' %}"
-        alt="Funcionalidad en construcción"
-    >
+
                 </div>
 
             </div>
@@ -353,7 +350,9 @@
 {% endblock %}
 
 {% block extra_js %}
-
+<script 
+type="module"
+src="{% static 'js/lab/lab.js' %}?v=2"></script>
 
 
 <script src="{% static 'bootstrap/js/bootstrap.js'%}"></script>

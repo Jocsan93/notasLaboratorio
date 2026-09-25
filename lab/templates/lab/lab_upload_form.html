@@ -1,0 +1,139 @@
+<div class="theory-upload-form">
+
+    {% if carga_exitosa %}
+
+        <div class="theory-upload-success">
+
+            <div class="theory-upload-already-icon">
+                ✓
+            </div>
+
+            <div class="theory-upload-success-content">
+
+                <h2>
+                    Carga completada correctamente
+                </h2>
+
+                <p>
+                    El archivo fue procesado y los empleados
+                    fueron guardados exitosamente en el sistema.
+                </p>
+
+                <div class="theory-upload-success-count">
+
+                    <strong>
+                        {{ cantidad_registros }}
+                    </strong>
+
+                    <span>
+                        empleados cargados
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    {% elif registros_existentes %}
+
+        <div class="theory-upload-already-icon">
+
+            ✓
+
+        </div>
+
+        <div class="theory-upload-already-content">
+
+            <h2>
+                Base de empleados ya cargada
+            </h2>
+
+            <p>
+                Ya existen empleados registrados
+                actualmente en el sistema.
+            </p>
+
+            <div class="theory-upload-count">
+
+                <strong>
+                    {{ cantidad_registros }}
+                </strong>
+
+                <span>
+                    empleados registrados
+                </span>
+
+            </div>
+
+            <div class="alert alert-warning">
+
+                <strong>Importante:</strong>
+                si desea cargar una nueva base de empleados,
+                primero debe eliminar los registros actuales
+                desde la zona de peligro.
+
+            </div>
+
+        </div>
+
+    {% else %}
+
+        <div class="theory-upload-header">
+
+            <h2>
+                Cargar empleados
+            </h2>
+
+            <p>
+                Seleccione el archivo Excel con la información
+                de los empleados.
+            </p>
+
+        </div>
+
+
+        <form
+            method="POST"
+            enctype="multipart/form-data"
+            id="theory-upload-form"
+        >
+
+            {% csrf_token %}
+
+
+            <div class="form-group">
+
+                <label for="{{ form.archivo.id_for_label }}">
+                    {{ form.archivo.label }}
+                </label>
+
+                {{ form.archivo }}
+
+                {% if form.archivo.errors %}
+
+                    <div class="form-error">
+                        {{ form.archivo.errors }}
+                    </div>
+
+                {% endif %}
+
+            </div>
+
+
+            <div class="registration-form-actions">
+
+                <button
+                    type="submit"
+                    class="registration-button"
+                >
+                    Cargar archivo
+                </button>
+
+            </div>
+
+        </form>
+
+    {% endif %}
+
+</div>

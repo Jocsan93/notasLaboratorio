@@ -1,0 +1,347 @@
+{% extends "landing/base.html" %}
+{% load static %}
+
+{% block extra_css %}
+
+<link rel="stylesheet" href="{% static 'css/perfil_admin.css' %}?v=1">
+<link rel="stylesheet" href="{% static 'css/theory.css' %}">
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="admin-layout">
+
+<!-- Barra lateral -->
+
+{% include "users/admin_sidebar.html" %}
+
+
+<!-- Contenido principal -->
+
+<main class="admin-content">
+
+<!-- Encabezado -->
+
+<div class="admin-header">
+
+    <h1>Gestión de empleados</h1>
+
+    <p>
+        Gestión y consulta de los empleados.
+    </p>
+
+</div>
+
+
+<!-- Navegación de pestañas -->
+
+<div class="theory-tabs-container">
+
+    <ul
+        class="nav nav-tabs theory-tabs"
+        id="theoryTabs"
+        role="tablist"
+    >
+
+        <!-- Subir base -->
+
+        <li class="nav-item" role="presentation">
+
+            <button
+                class="nav-link active"
+                id="upload-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#upload-content"
+                type="button"
+                role="tab"
+                aria-controls="upload-content"
+                aria-selected="true"
+            >
+                Subir base
+            </button>
+
+        </li>
+
+
+        <!-- Ver empleados -->
+
+        <li class="nav-item" role="presentation">
+
+            <button
+                class="nav-link"
+                id="sections-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#sections-content"
+                type="button"
+                role="tab"
+                aria-controls="sections-content"
+                aria-selected="false"
+            >
+                Ver empleados
+            </button>
+
+        </li>
+
+
+        <!-- Buscar -->
+
+        <li class="nav-item" role="presentation">
+
+            <button
+                class="nav-link"
+                id="search-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#search-content"
+                type="button"
+                role="tab"
+                aria-controls="search-content"
+                aria-selected="false"
+            >
+                Buscar
+            </button>
+
+        </li>
+
+    </ul>
+
+
+    <!-- Contenido de las pestañas -->
+
+    <div
+        class="tab-content theory-tab-content"
+        id="theoryTabContent"
+    >
+
+        <!-- ================================================= -->
+        <!-- SUBIR BASE -->
+        <!-- ================================================= -->
+
+        <div
+            class="tab-pane fade show active"
+            id="upload-content"
+            role="tabpanel"
+            aria-labelledby="upload-tab"
+            tabindex="0"
+        >
+
+            <div
+                id="upload-sections-container"
+                class="theory-content-container"
+            >
+
+                <div class="theory-placeholder">
+
+                </div>
+
+            </div>
+
+
+            <!-- ================================================= -->
+            <!-- ZONA DE PELIGRO -->
+            <!-- ================================================= -->
+
+            <div class="employee-danger-zone">
+
+                <div class="employee-danger-header">
+
+                    <h3>
+                        Zona de peligro
+                    </h3>
+
+                    <p>
+                        Esta sección permite eliminar todos los
+                        empleados registrados en la base de datos.
+                    </p>
+
+                </div>
+
+
+                <div class="employee-danger-content">
+
+                    <div>
+
+                        <h5>
+                            Eliminar toda la base de empleados
+                        </h5>
+
+                        <p>
+                            Esta acción eliminará todos los registros
+                            de empleados y no podrá deshacerse.
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="btn btn-danger"
+                        id="employee-delete-all-button"
+                        data-bs-toggle="modal"
+                        data-bs-target="#employeeDeleteAllModal"
+                    >
+                        Eliminar toda la base
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================================================= -->
+        <!-- VER EMPLEADOS -->
+        <!-- ================================================= -->
+
+        <div
+            class="tab-pane fade"
+            id="sections-content"
+            role="tabpanel"
+            aria-labelledby="sections-tab"
+            tabindex="0"
+        >
+
+            <div
+                id="sections-list-container"
+                class="theory-content-container"
+            >
+
+                <div class="theory-placeholder">
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================================================= -->
+        <!-- BUSCAR -->
+        <!-- ================================================= -->
+
+        <div
+            class="tab-pane fade"
+            id="search-content"
+            role="tabpanel"
+            aria-labelledby="search-tab"
+            tabindex="0"
+        >
+
+            <div
+                id="search-sections-container"
+                class="theory-content-container"
+            >
+
+                <div class="theory-placeholder">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+</main>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- MODAL ELIMINAR TODA LA BASE -->
+<!-- ================================================= -->
+
+<div
+    class="modal fade"
+    id="employeeDeleteAllModal"
+    tabindex="-1"
+    aria-labelledby="employeeDeleteAllModalLabel"
+    aria-hidden="true"
+>
+
+    <div class="modal-dialog modal-dialog-centered">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h5
+                    class="modal-title"
+                    id="employeeDeleteAllModalLabel"
+                >
+                    Eliminar toda la base
+                </h5>
+
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Cerrar"
+                >
+                </button>
+
+            </div>
+
+
+            <div class="modal-body">
+
+                <p>
+                    Estás a punto de eliminar
+                    <strong>todos los empleados</strong>
+                    registrados en la base de datos, incluyendo datos históricos.
+                </p>
+
+                <p>
+                    Esta acción no puede deshacerse.
+                </p>
+
+                <p class="mb-0">
+                    ¿Deseás continuar?
+                </p>
+
+            </div>
+
+
+            <div class="modal-footer">
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                >
+                    Cancelar
+                </button>
+
+                <button
+                    type="button"
+                    class="btn btn-danger"
+                    id="employee-delete-all-final-button"
+                >
+                    Sí, eliminar toda la base
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+
+{% block extra_js %}
+
+<script src="{% static 'bootstrap/js/bootstrap.js'%}"></script>
+
+<script
+    type="module"
+    src="{% static 'js/empleados/empleados.js' %}"
+></script>
+{% endblock %}

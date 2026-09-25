@@ -9,5 +9,6 @@ urlpatterns = [
     path('Contactanos', landingViews.contact, name="contactanos"),
     path('users/', include('users.urls')),
     path('theory/', include('theory.urls')),
-    path('lab/', include('lab.urls'))
+    path('lab/', include('lab.urls')),
+    path('empleados/', include('empleados.urls'))
 ]

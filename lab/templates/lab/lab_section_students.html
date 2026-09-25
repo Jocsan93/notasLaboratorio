@@ -1,0 +1,150 @@
+<div
+    class="theory-sections-table"
+    id="theory-section-students"
+    data-fisica="{{ fisica }}"
+    data-dia="{{ dia }}"
+    data-hora="{{ hora }}"
+>
+
+    <div class="theory-sections-header">
+
+        <div>
+
+            <h2>
+                Estudiantes de la sección
+            </h2>
+
+            <p>
+                Física:
+                <strong>{{ fisica }}</strong>
+                |
+                Día:
+                <strong>{{ dia }}</strong>
+                |
+                Hora:
+                <strong>{{ hora }}</strong>
+                 Instructor:
+                <strong>{{ instructor }}</strong>
+            </p>
+
+        </div>
+
+        <div class="theory-sections-total">
+
+            <strong>
+                {{ estudiantes|length }}
+            </strong>
+
+            <span>
+                estudiantes
+            </span>
+
+        </div>
+
+    </div>
+
+
+    {% if estudiantes %}
+
+        <div class="table-responsive">
+
+            <table class="table theory-sections-table-content">
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Nombre completo
+                        </th>
+
+                        <th>
+                            Número de cuenta
+                        </th>
+
+                        <th>
+                            Carrera
+                        </th>
+
+                        <th>
+                            Nota final de laboratorio
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    {% for estudiante in estudiantes %}
+
+                        <tr>
+
+                            <td>
+                                {{ estudiante.nombre }}
+                            </td>
+
+                            <td>
+                                {{ estudiante.cuenta }}
+                            </td>
+
+                            <td>
+                                {{ estudiante.carrera }}
+                            </td>
+
+                            <td>
+                                0
+                            </td>
+
+                        </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    {% else %}
+
+        <div class="theory-sections-empty">
+
+            <h2>
+                No hay estudiantes registrados
+            </h2>
+
+            <p>
+                No se encontraron estudiantes asociados
+                a esta sección.
+            </p>
+
+        </div>
+
+    {% endif %}
+
+
+    <br>
+    <br>
+
+    <div class="registration-form-actions">
+
+        <button
+            type="button"
+            class="theory-back-sections-button"
+            id="theory-back-sections"
+        >
+            ← Regresar
+        </button>
+
+        <button
+            type="button"
+            class="theory-download-excel-button"
+            id="theory-download-excel"
+        >
+            Descargar Excel
+        </button>
+
+    </div>
+
+</div>

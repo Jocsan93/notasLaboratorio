@@ -1,0 +1,392 @@
+<div class="theory-delete-container">
+
+    <div class="theory-search-header">
+
+        <h2>
+            Depurar estudiantes
+        </h2>
+
+        <p>
+            Estudiantes registrados en teoría que no aparecen
+            matriculados en laboratorio.
+        </p>
+
+    </div>
+
+
+    <div class="row mb-4">
+
+        <div class="col-md-4">
+
+            <div class="card h-100">
+
+                <div class="card-body">
+
+                    <h6>
+                        Estudiantes en teoría
+                    </h6>
+
+                    <h3 class="lab-cleanup-total-teoria">
+                        {{ total_teoria }}
+                    </h3>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-md-4">
+
+            <div class="card h-100">
+
+                <div class="card-body">
+
+                    <h6>
+                        Estudiantes en laboratorio
+                    </h6>
+
+                    <h3 class="lab-cleanup-total-lab">
+                        {{ total_lab }}
+                    </h3>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-md-4">
+
+            <div class="card h-100">
+
+                <div class="card-body">
+
+                    <h6>
+                        No encontrados en laboratorio
+                    </h6>
+
+                    <h3 class="lab-cleanup-total-faltantes">
+                        {{ total_faltantes }}
+                    </h3>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="table-responsive">
+
+        <table class="table table-hover align-middle">
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        Física
+                    </th>
+
+                    <th>
+                        Sección
+                    </th>
+
+                    <th>
+                        Nombre
+                    </th>
+
+                    <th>
+                        Correo
+                    </th>
+
+                    <th>
+                        Cuenta
+                    </th>
+
+                    <th>
+                        Acción
+                    </th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for estudiante in estudiantes %}
+
+                    <tr>
+
+                        <td>
+                            {{ estudiante.fisica }}
+                        </td>
+
+                        <td>
+                            {{ estudiante.seccion }}
+                        </td>
+
+                        <td>
+                            {{ estudiante.nombre }}
+                        </td>
+
+                        <td>
+                            {{ estudiante.correo }}
+                        </td>
+
+                        <td>
+                            {{ estudiante.cuenta }}
+                        </td>
+
+                        <td>
+
+                            <button
+                                type="button"
+                                class="btn btn-danger lab-cleanup-delete-button"
+                                data-cuenta="{{ estudiante.cuenta }}"
+                                data-nombre="{{ estudiante.nombre }}"
+                                data-correo="{{ estudiante.correo }}"
+                                data-fisica="{{ estudiante.fisica }}"
+                                data-seccion="{{ estudiante.seccion }}"
+                                data-bs-toggle="modal"
+                                data-bs-target="#labCleanupWarningModal"
+                            >
+                                Eliminar
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+                {% empty %}
+
+                    <tr>
+
+                        <td
+                            colspan="6"
+                            class="text-center"
+                        >
+                            No hay estudiantes pendientes de depuración.
+                        </td>
+
+                    </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+<!-- PRIMERA CONFIRMACIÓN -->
+
+<div
+    class="modal fade"
+    id="labCleanupWarningModal"
+    tabindex="-1"
+    aria-hidden="true"
+>
+
+    <div class="modal-dialog modal-dialog-centered">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h5 class="modal-title">
+                    Confirmar eliminación
+                </h5>
+
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Cerrar"
+                ></button>
+
+            </div>
+
+
+            <div class="modal-body">
+
+                <p>
+                    Este estudiante está registrado en teoría,
+                    pero no aparece en laboratorio.
+                </p>
+
+                <p>
+                    ¿Deseás continuar con la eliminación?
+                </p>
+
+            </div>
+
+
+            <div class="modal-footer">
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                >
+                    Cancelar
+                </button>
+
+                <button
+                    type="button"
+                    class="btn btn-danger"
+                    data-bs-dismiss="modal"
+                    data-bs-toggle="modal"
+                    data-bs-target="#labCleanupNuclearModal"
+                >
+                    Continuar
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- SEGUNDA CONFIRMACIÓN -->
+
+<div
+    class="modal fade"
+    id="labCleanupNuclearModal"
+    tabindex="-1"
+    aria-hidden="true"
+>
+
+    <div class="modal-dialog modal-dialog-centered">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h5 class="modal-title">
+                    Confirmación final
+                </h5>
+
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Cerrar"
+                ></button>
+
+            </div>
+
+
+            <div class="modal-body">
+
+                <p>
+                    Se eliminará el siguiente estudiante
+                    de los registros de teoría:
+                </p>
+
+
+                <div class="mb-3">
+
+                    <strong>
+                        Nombre:
+                    </strong>
+
+                    <span id="cleanup-student-name">
+                    </span>
+
+                </div>
+
+
+                <div class="mb-3">
+
+                    <strong>
+                        Cuenta:
+                    </strong>
+
+                    <span id="cleanup-student-account">
+                    </span>
+
+                </div>
+
+
+                <div class="mb-3">
+
+                    <strong>
+                        Correo:
+                    </strong>
+
+                    <span id="cleanup-student-email">
+                    </span>
+
+                </div>
+
+
+                <div class="mb-3">
+
+                    <strong>
+                        Física:
+                    </strong>
+
+                    <span id="cleanup-student-physics">
+                    </span>
+
+                </div>
+
+
+                <div class="mb-3">
+
+                    <strong>
+                        Sección:
+                    </strong>
+
+                    <span id="cleanup-student-section">
+                    </span>
+
+                </div>
+
+
+                <p class="text-danger fw-bold">
+                    Esta acción no se puede deshacer.
+                </p>
+
+            </div>
+
+
+            <div class="modal-footer">
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                    data-bs-toggle="modal"
+                    data-bs-target="#labCleanupWarningModal"
+                >
+                    Regresar
+                </button>
+
+                <button
+                    type="button"
+                    class="btn btn-danger"
+                    id="lab-cleanup-final-delete-button"
+                >
+                    Eliminar definitivamente
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

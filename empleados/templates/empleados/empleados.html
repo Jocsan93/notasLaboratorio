@@ -4,7 +4,7 @@
 {% block extra_css %}
 
 <link rel="stylesheet" href="{% static 'css/perfil_admin.css' %}?v=1">
-<link rel="stylesheet" href="{% static 'css/theory.css' %}">
+<link rel="stylesheet" href="{% static 'css/theory.css' %}?v=4">
 
 {% endblock %}
 
@@ -156,8 +156,11 @@
                     </p>
 
                 </div>
-
-
+                <div
+                    id="employee-delete-message"
+                    class="mb-3"
+                >
+                </div>
                 <div class="employee-danger-content">
 
                     <div>
@@ -168,7 +171,7 @@
 
                         <p>
                             Esta acción eliminará todos los registros
-                            de empleados y no podrá deshacerse.
+                            y no podrá deshacerse.
                         </p>
 
                     </div>
@@ -230,7 +233,7 @@
         >
 
             <div
-                id="search-sections-container"
+                id="search-employees-container"
                 class="theory-content-container"
             >
 
@@ -253,7 +256,7 @@
 
 
 <!-- ================================================= -->
-<!-- MODAL ELIMINAR TODA LA BASE -->
+<!-- PRIMER MODAL -->
 <!-- ================================================= -->
 
 <div
@@ -274,7 +277,7 @@
                     class="modal-title"
                     id="employeeDeleteAllModalLabel"
                 >
-                    Eliminar toda la base
+                    ¿Está seguro?
                 </h5>
 
                 <button
@@ -282,8 +285,7 @@
                     class="btn-close"
                     data-bs-dismiss="modal"
                     aria-label="Cerrar"
-                >
-                </button>
+                ></button>
 
             </div>
 
@@ -291,17 +293,13 @@
             <div class="modal-body">
 
                 <p>
-                    Estás a punto de eliminar
+                    Está a punto de eliminar
                     <strong>todos los empleados</strong>
-                    registrados en la base de datos, incluyendo datos históricos.
-                </p>
-
-                <p>
-                    Esta acción no puede deshacerse.
+                    de la base de datos.
                 </p>
 
                 <p class="mb-0">
-                    ¿Deseás continuar?
+                    Esta acción es permanente y no podrá deshacerse.
                 </p>
 
             </div>
@@ -311,18 +309,19 @@
 
                 <button
                     type="button"
-                    class="btn btn-secondary"
-                    data-bs-dismiss="modal"
+                    class="btn btn-danger"
+                    data-bs-toggle="modal"
+                    data-bs-target="#employeeDeleteAllConfirmationModal"
                 >
-                    Cancelar
+                    Continuar
                 </button>
 
                 <button
                     type="button"
-                    class="btn btn-danger"
-                    id="employee-delete-all-final-button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
                 >
-                    Sí, eliminar toda la base
+                    Regresar
                 </button>
 
             </div>
@@ -333,6 +332,137 @@
 
 </div>
 
+
+<!-- ================================================= -->
+<!-- SEGUNDO MODAL -->
+<!-- ================================================= -->
+
+<div
+    class="modal fade"
+    id="employeeDeleteAllConfirmationModal"
+    tabindex="-1"
+    aria-labelledby="employeeDeleteAllConfirmationModalLabel"
+    aria-hidden="true"
+>
+
+    <div class="modal-dialog modal-dialog-centered">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h5
+                    class="modal-title"
+                    id="employeeDeleteAllConfirmationModalLabel"
+                >
+                    ¿Está completamente seguro?
+                </h5>
+
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Cerrar"
+                ></button>
+
+            </div>
+
+
+            <div class="modal-body text-center">
+
+                <div
+                    class="display-1 mb-3"
+                    aria-hidden="true"
+                >
+                    ☢
+                </div>
+
+                <h4>
+                    Esta es la opción nuclear
+                </h4>
+
+                <p>
+                    Se eliminarán
+                    <strong>todos los empleados</strong>
+                    de la base de datos.
+                </p>
+
+                <p class="mb-0">
+                    No se podrá recuperar la información eliminada.
+                </p>
+
+            </div>
+
+
+            <div class="modal-footer justify-content-between">
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#employeeDeleteAllModal"
+                >
+                    Regresar
+                </button>
+
+                <button
+                    type="button"
+                    class="btn btn-danger"
+                    id="employee-delete-all-final-button"
+                >
+                    Eliminar toda la base
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- MODAL DE INFORMACIÓN DEL EMPLEADO -->
+<div
+    class="modal fade"
+    id="employeeDetailModal"
+    tabindex="-1"
+    aria-labelledby="employeeDetailModalLabel"
+    aria-hidden="true"
+>
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h5
+                    class="modal-title"
+                    id="employeeDetailModalLabel"
+                >
+                    Información del empleado
+                </h5>
+
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Cerrar"
+                ></button>
+
+            </div>
+
+            <div
+                class="modal-body"
+                id="employee-detail-container"
+            >
+            </div>
+
+        </div>
+
+    </div>
+</div>
 {% endblock %}
 
 
@@ -342,6 +472,7 @@
 
 <script
     type="module"
-    src="{% static 'js/empleados/empleados.js' %}"
+    src="{% static 'js/empleados/empleados.js' %}?v=3"
 ></script>
+
 {% endblock %}

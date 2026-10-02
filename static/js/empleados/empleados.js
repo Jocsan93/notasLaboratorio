@@ -2,6 +2,18 @@ import {
     loadEmpleadosUploadForm
 } from "./empleados-upload.js";
 
+import {
+    initializeEmpleadosDelete
+} from "./empleados-delete.js";
+
+import {
+    loadEmpleadosList
+} from "./empleados-list.js";
+
+import {
+    loadEmpleadosSearch
+} from "./empleados-search.js";
+
 
 
 document.addEventListener(
@@ -44,7 +56,7 @@ document.addEventListener(
                 "click",
                 function () {
 
-                    // Próximamente
+                    loadEmpleadosList();
 
                 }
             );
@@ -58,7 +70,7 @@ document.addEventListener(
                 "click",
                 function () {
 
-                    // Próximamente
+                    loadEmpleadosSearch();
 
                 }
             );
@@ -67,6 +79,8 @@ document.addEventListener(
 
 
         loadEmpleadosUploadForm();
+
+        initializeEmpleadosDelete();
 
     }
 );

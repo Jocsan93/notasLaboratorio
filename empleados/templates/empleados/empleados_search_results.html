@@ -1,0 +1,91 @@
+{% if empleados %}
+
+    <div class="table-responsive">
+
+        <table class="table theory-sections-table-content">
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        Nombre
+                    </th>
+
+                    <th>
+                        Número de empleado
+                    </th>
+
+                    <th>
+                        Correo
+                    </th>
+
+                    <th>
+                        Cargo
+                    </th>
+
+                    <th>
+                        Departamento
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+                {% for empleado in empleados %}
+
+                    <tr
+                        class="theory-section-row theory-section-row-alt"
+                        data-numero-empleado="{{ empleado.numero_empleado }}"
+                        data-nombre="{{ empleado.nombre }}"
+                    >
+
+                        <td>
+                            {{ empleado.nombre }}
+                        </td>
+
+                        <td>
+                            {{ empleado.numero_empleado }}
+                        </td>
+
+                        <td>
+                            {{ empleado.correo }}
+                        </td>
+
+                        <td>
+                            {{ empleado.cargo }}
+                        </td>
+
+                        <td>
+                            {{ empleado.departamento }}
+                        </td>
+
+                    </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+{% else %}
+
+    <div class="theory-sections-empty">
+
+        <h2>
+            No se encontraron empleados
+        </h2>
+
+        <p>
+            No existen empleados que coincidan
+            con el nombre ingresado.
+        </p>
+
+    </div>
+
+{% endif %}

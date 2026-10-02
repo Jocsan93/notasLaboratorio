@@ -1,16 +1,13 @@
 import pandas as pd
 from django.contrib.auth.decorators import login_required
 from .models_django import Empleado
-from theory.models_django import TheoryStudent
 from django.shortcuts import render
 from functools import wraps
 from django.contrib.auth.views import redirect_to_login
 from django.core.exceptions import PermissionDenied
-from .forms import EmpleadoUploadForm
+from .forms import EmpleadoUploadForm, EmpleadoUpdateForm
 from django.core.paginator import Paginator
-from io import BytesIO
-import openpyxl
-from django.http import HttpResponse, JsonResponse
+from django.http import JsonResponse
 
 def admin_required(view_func):
 
@@ -43,15 +40,6 @@ def empleados_upload_view(request):
 
     registros = Empleado.objects.count()
 
-
-    print("\n")
-    print("========== EMPLEADOS ==========")
-    print(
-        "Cantidad de empleados:",
-        registros
-    )
-    print("================================")
-    print("\n")
 
 
     if registros > 0:
@@ -215,5 +203,399 @@ def empleados_upload_view(request):
         "empleados/empleados_upload_form.html",
         {
             "form": form
+        }
+    )
+
+
+@login_required
+@admin_required
+def empleados_delete_all_view(request):
+
+    if request.method != "POST":
+
+        return JsonResponse(
+            {
+                "success": False,
+                "message": "Método no permitido."
+            },
+            status=405
+        )
+
+
+    cantidad_registros = Empleado.objects.count()
+
+
+    if cantidad_registros == 0:
+
+        return JsonResponse(
+            {
+                "success": False,
+                "message": "No existen empleados para eliminar."
+            },
+            status=400
+        )
+
+
+    Empleado.objects.delete()
+
+
+    return JsonResponse(
+        {
+            "success": True,
+            "cantidad_eliminada": cantidad_registros,
+            "message": (
+                "Todos los empleados fueron "
+                "eliminados correctamente."
+            )
+        }
+    )    
+
+
+@login_required
+@admin_required
+def empleados_list_view(request):
+
+    empleados = Empleado.objects.only(
+        "numero_empleado",
+        "nombre",
+        "correo",
+        "cargo",
+        "departamento"
+    )
+
+    paginator = Paginator(
+        empleados,
+        15
+    )
+
+    numero_pagina = request.GET.get(
+        "page",
+        1
+    )
+
+    pagina = paginator.get_page(
+        numero_pagina
+    )
+
+    return render(
+        request,
+        "empleados/empleados_list_table.html",
+        {
+            "empleados": pagina,
+            "paginator": paginator,
+        }
+    )
+
+
+@login_required
+@admin_required
+def empleados_detail_view(request):
+
+    numero_empleado = request.GET.get(
+        "numero_empleado"
+    )
+
+    nombre = request.GET.get(
+        "nombre"
+    )
+
+    empleado = None
+
+    if numero_empleado:
+
+        numero_empleado_limpio = (
+            numero_empleado.strip().lower()
+        )
+
+        if numero_empleado_limpio != "nan":
+
+            empleado = Empleado.objects(
+                numero_empleado=numero_empleado
+            ).first()
+
+    if not empleado and nombre:
+
+        empleado = Empleado.objects(
+            nombre=nombre
+        ).first()
+
+    if not empleado:
+        return JsonResponse(
+            {
+                "success": False,
+                "message": (
+                    "No se encontró el empleado."
+                )
+            },
+            status=404
+        )
+
+    numero_empleado_mostrado = (
+        empleado.numero_empleado
+    )
+
+    if numero_empleado_mostrado:
+
+        numero_empleado_mostrado = (
+            str(numero_empleado_mostrado).strip()
+        )
+
+        if numero_empleado_mostrado.endswith(".0"):
+
+            numero_empleado_mostrado = (
+                numero_empleado_mostrado[:-2]
+            )
+
+    return render(
+        request,
+        "empleados/empleado_detail_card.html",
+        {
+            "empleado": empleado,
+            "numero_empleado_mostrado":
+                numero_empleado_mostrado
+        }
+    )
+
+
+@login_required
+@admin_required
+def empleados_update_view(request):
+
+    numero_empleado = request.GET.get(
+        "numero_empleado"
+    )
+
+    nombre = request.GET.get(
+        "nombre"
+    )
+
+    empleado = None
+
+    if numero_empleado:
+
+        numero_empleado_limpio = (
+            numero_empleado.strip().lower()
+        )
+
+        if numero_empleado_limpio != "nan":
+
+            empleado = Empleado.objects(
+                numero_empleado=numero_empleado
+            ).first()
+
+    if not empleado and nombre:
+
+        empleado = Empleado.objects(
+            nombre=nombre
+        ).first()
+
+    if not empleado:
+
+        return JsonResponse(
+            {
+                "success": False,
+                "message": (
+                    "No se encontró el empleado."
+                )
+            },
+            status=404
+        )
+
+    if request.method == "POST":
+
+        form = EmpleadoUpdateForm(
+            request.POST
+        )
+
+        if form.is_valid():
+
+            datos = form.cleaned_data
+
+            empleado.departamento = (
+                datos["departamento"]
+            )
+
+            empleado.nombre = (
+                datos["nombre"]
+            )
+
+            empleado.correo = (
+                datos["correo"]
+            )
+
+            empleado.genero = (
+                datos["genero"]
+            )
+
+            empleado.identidad = (
+                datos["identidad"]
+            )
+
+            empleado.contrato = (
+                datos["contrato"]
+            )
+
+            empleado.ingreso = (
+                datos["ingreso"].strftime("%Y-%m-%d")
+                if datos["ingreso"]
+                else ""
+            )
+
+            empleado.cumpleanos = (
+                datos["cumpleanos"].strftime("%Y-%m-%d")
+                if datos["cumpleanos"]
+                else ""
+            )
+
+            empleado.telefono = (
+                datos["telefono"]
+            )
+
+            empleado.cargo = (
+                datos["cargo"]
+            )
+
+            empleado.grado_academico = (
+                datos["grado_academico"]
+            )
+
+            empleado.numero_empleado = (
+                datos["numero_empleado"]
+            )
+
+            empleado.unidades_minimas = (
+                datos["unidades_minimas"]
+            )
+
+            empleado.save()
+
+            return JsonResponse(
+                {
+                    "success": True,
+                    "message": (
+                        "La información del empleado "
+                        "se actualizó correctamente."
+                    )
+                }
+            )
+
+    else:
+
+        ingreso = empleado.ingreso
+
+        if ingreso:
+
+            ingreso = str(
+                ingreso
+            )[:10]
+
+        cumpleanos = empleado.cumpleanos
+
+        if cumpleanos:
+
+            cumpleanos = str(
+                cumpleanos
+            )[:10]
+
+        form = EmpleadoUpdateForm(
+            initial={
+                "departamento":
+                    empleado.departamento,
+
+                "nombre":
+                    empleado.nombre,
+
+                "correo":
+                    empleado.correo,
+
+                "genero":
+                    empleado.genero,
+
+                "identidad":
+                    empleado.identidad,
+
+                "contrato":
+                    empleado.contrato,
+
+                "ingreso":
+                    ingreso,
+
+                "cumpleanos":
+                    cumpleanos,
+
+                "telefono":
+                    empleado.telefono,
+
+                "cargo":
+                    empleado.cargo,
+
+                "grado_academico":
+                    empleado.grado_academico,
+
+                "numero_empleado":
+                    empleado.numero_empleado,
+
+                "unidades_minimas":
+                    empleado.unidades_minimas
+            }
+        )
+
+    return render(
+        request,
+        "empleados/empleado_update_form.html",
+        {
+            "form": form,
+            "empleado": empleado
+        }
+    )
+
+
+@login_required
+@admin_required
+def empleados_search_view(request):
+
+
+
+    nombre = request.GET.get(
+        "nombre",
+        ""
+    ).strip()
+
+
+
+    if not nombre:
+
+
+        return render(
+            request,
+            "empleados/empleados_search.html",
+            {
+                "empleados": []
+            }
+        )
+
+
+    empleados = Empleado.objects(
+        nombre__icontains=nombre
+    ).only(
+        "numero_empleado",
+        "nombre",
+        "correo",
+        "cargo",
+        "departamento"
+    )
+
+
+    empleados = empleados[:15]
+
+
+
+
+
+    return render(
+        request,
+        "empleados/empleados_search_results.html",
+        {
+            "empleados": empleados
         }
     )

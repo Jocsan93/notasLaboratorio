@@ -1,4 +1,5 @@
 import mongoengine
+from django.utils import timezone
 
 
 class UserDocument(mongoengine.Document):
@@ -30,4 +31,30 @@ class UserDocument(mongoengine.Document):
 
     meta = {
         "collection": "users"
+    }
+
+
+class PasswordChangeCode(mongoengine.Document):
+
+    email = mongoengine.EmailField(
+        required=True
+    )
+
+    codigo_hash = mongoengine.StringField(
+        required=True
+    )
+
+    creado_en = mongoengine.DateTimeField(
+        required=True,
+        default=timezone.now
+    )
+
+    meta = {
+        "collection": "password_change_codes",
+        "indexes": [
+            {
+                "fields": ["creado_en"],
+                "expireAfterSeconds": 900
+            }
+        ]
     }

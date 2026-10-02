@@ -1,0 +1,240 @@
+<div class="card employee-detail-card">
+
+    <div class="card-body">
+
+        <div class="employee-detail-header">
+
+            <div>
+                <h3 class="employee-detail-name">
+                    {{ empleado.nombre }}
+                </h3>
+
+                <p class="employee-detail-position">
+                    {{ empleado.cargo }}
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="employee-detail-section">
+
+            <h4>
+                Información personal
+            </h4>
+
+            <div class="row g-3">
+
+                <div class="col-md-6">
+                    <div class="employee-detail-item">
+
+                        <span>
+                            Número de identidad
+                        </span>
+
+                        <strong>
+                            {{ empleado.identidad }}
+                        </strong>
+
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+                    <div class="employee-detail-item">
+
+                        <span>
+                            Género
+                        </span>
+
+                        <strong>
+                            {{ empleado.genero }}
+                        </strong>
+
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+                    <div class="employee-detail-item">
+
+                        <span>
+                            Cumpleaños
+                        </span>
+
+                        <strong>
+                            {{ empleado.cumpleanos }}
+                        </strong>
+
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+                    <div class="employee-detail-item">
+
+                        <span>
+                            Teléfono
+                        </span>
+
+                        <strong>
+                            {{ empleado.telefono }}
+                        </strong>
+
+                    </div>
+                </div>
+
+
+                <div class="col-12">
+                    <div class="employee-detail-item">
+
+                        <span>
+                            Correo
+                        </span>
+
+                        <strong>
+                            {{ empleado.correo }}
+                        </strong>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="employee-detail-section">
+
+            <h4>
+                Información laboral
+            </h4>
+
+            <div class="row g-3">
+
+                <div class="col-md-6">
+                    <div class="employee-detail-item">
+
+                        <span>
+                            Número de empleado
+                        </span>
+
+                        <strong>
+                            {{ numero_empleado_mostrado }}
+                        </strong>
+
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+                    <div class="employee-detail-item">
+
+                        <span>
+                            Departamento
+                        </span>
+
+                        <strong>
+                            {{ empleado.departamento }}
+                        </strong>
+
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+                    <div class="employee-detail-item">
+
+                        <span>
+                            Cargo
+                        </span>
+
+                        <strong>
+                            {{ empleado.cargo }}
+                        </strong>
+
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+                    <div class="employee-detail-item">
+
+                        <span>
+                            Contrato
+                        </span>
+
+                        <strong>
+                            {{ empleado.contrato }}
+                        </strong>
+
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+                    <div class="employee-detail-item">
+
+                        <span>
+                            Fecha de ingreso
+                        </span>
+
+                        <strong>
+                            {{ empleado.ingreso }}
+                        </strong>
+
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+                    <div class="employee-detail-item">
+
+                        <span>
+                            Grado académico
+                        </span>
+
+                        <strong>
+                            {{ empleado.grado_academico }}
+                        </strong>
+
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+                    <div class="employee-detail-item">
+
+                        <span>
+                            Unidades mínimas
+                        </span>
+
+                        <strong>
+                            {{ empleado.unidades_minimas }}
+                        </strong>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="employee-detail-actions">
+
+            <button
+                type="button"
+                class="btn btn-primary"
+                id="employee-modify-button"
+                data-numero-empleado="{{ empleado.numero_empleado }}"
+                data-nombre="{{ empleado.nombre }}"
+            >
+                Modificar información
+            </button>
+
+        </div>
+
+    </div>
+
+</div>

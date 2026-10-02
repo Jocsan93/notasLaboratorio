@@ -1,0 +1,405 @@
+<div class="card employee-detail-card">
+
+    <div class="card-body">
+
+        <div class="employee-detail-header">
+
+            <div>
+
+                <h3 class="employee-detail-name">
+                    Modificar información
+                </h3>
+
+                <p class="employee-detail-position">
+                    {{ empleado.nombre }}
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <form
+            method="POST"
+            id="employee-update-form"
+        >
+
+            {% csrf_token %}
+
+
+            <div class="employee-detail-section">
+
+                <h4>
+                    Información personal
+                </h4>
+
+
+                <div class="row g-3">
+
+                    <div class="col-md-6">
+
+                        <div class="employee-detail-item">
+
+                            <label
+                                for="{{ form.nombre.id_for_label }}"
+                            >
+                                Nombre completo
+                            </label>
+
+                            {{ form.nombre }}
+
+                            {% if form.nombre.errors %}
+
+                                <div class="form-error">
+                                    {{ form.nombre.errors }}
+                                </div>
+
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <div class="employee-detail-item">
+
+                            <label
+                                for="{{ form.genero.id_for_label }}"
+                            >
+                                Género
+                            </label>
+
+                            {{ form.genero }}
+
+                            {% if form.genero.errors %}
+
+                                <div class="form-error">
+                                    {{ form.genero.errors }}
+                                </div>
+
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <div class="employee-detail-item">
+
+                            <label
+                                for="{{ form.identidad.id_for_label }}"
+                            >
+                                Número de identidad
+                            </label>
+
+                            {{ form.identidad }}
+
+                            {% if form.identidad.errors %}
+
+                                <div class="form-error">
+                                    {{ form.identidad.errors }}
+                                </div>
+
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <div class="employee-detail-item">
+
+                            <label
+                                for="{{ form.cumpleanos.id_for_label }}"
+                            >
+                                Cumpleaños
+                            </label>
+
+                            {{ form.cumpleanos }}
+
+                            {% if form.cumpleanos.errors %}
+
+                                <div class="form-error">
+                                    {{ form.cumpleanos.errors }}
+                                </div>
+
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <div class="employee-detail-item">
+
+                            <label
+                                for="{{ form.telefono.id_for_label }}"
+                            >
+                                Teléfono
+                            </label>
+
+                            {{ form.telefono }}
+
+                            {% if form.telefono.errors %}
+
+                                <div class="form-error">
+                                    {{ form.telefono.errors }}
+                                </div>
+
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <div class="employee-detail-item">
+
+                            <label
+                                for="{{ form.correo.id_for_label }}"
+                            >
+                                Correo
+                            </label>
+
+                            {{ form.correo }}
+
+                            {% if form.correo.errors %}
+
+                                <div class="form-error">
+                                    {{ form.correo.errors }}
+                                </div>
+
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="employee-detail-section">
+
+                <h4>
+                    Información laboral
+                </h4>
+
+
+                <div class="row g-3">
+
+                    <div class="col-md-6">
+
+                        <div class="employee-detail-item">
+
+                            <label
+                                for="{{ form.numero_empleado.id_for_label }}"
+                            >
+                                Número de empleado
+                            </label>
+
+                            {{ form.numero_empleado }}
+
+                            {% if form.numero_empleado.errors %}
+
+                                <div class="form-error">
+                                    {{ form.numero_empleado.errors }}
+                                </div>
+
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <div class="employee-detail-item">
+
+                            <label
+                                for="{{ form.departamento.id_for_label }}"
+                            >
+                                Departamento
+                            </label>
+
+                            {{ form.departamento }}
+
+                            {% if form.departamento.errors %}
+
+                                <div class="form-error">
+                                    {{ form.departamento.errors }}
+                                </div>
+
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <div class="employee-detail-item">
+
+                            <label
+                                for="{{ form.cargo.id_for_label }}"
+                            >
+                                Cargo
+                            </label>
+
+                            {{ form.cargo }}
+
+                            {% if form.cargo.errors %}
+
+                                <div class="form-error">
+                                    {{ form.cargo.errors }}
+                                </div>
+
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <div class="employee-detail-item">
+
+                            <label
+                                for="{{ form.contrato.id_for_label }}"
+                            >
+                                Contrato
+                            </label>
+
+                            {{ form.contrato }}
+
+                            {% if form.contrato.errors %}
+
+                                <div class="form-error">
+                                    {{ form.contrato.errors }}
+                                </div>
+
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <div class="employee-detail-item">
+
+                            <label
+                                for="{{ form.ingreso.id_for_label }}"
+                            >
+                                Fecha de ingreso
+                            </label>
+
+                            {{ form.ingreso }}
+
+                            {% if form.ingreso.errors %}
+
+                                <div class="form-error">
+                                    {{ form.ingreso.errors }}
+                                </div>
+
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <div class="employee-detail-item">
+
+                            <label
+                                for="{{ form.grado_academico.id_for_label }}"
+                            >
+                                Grado académico
+                            </label>
+
+                            {{ form.grado_academico }}
+
+                            {% if form.grado_academico.errors %}
+
+                                <div class="form-error">
+                                    {{ form.grado_academico.errors }}
+                                </div>
+
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <div class="employee-detail-item">
+
+                            <label
+                                for="{{ form.unidades_minimas.id_for_label }}"
+                            >
+                                Unidades mínimas
+                            </label>
+
+                            {{ form.unidades_minimas }}
+
+                            {% if form.unidades_minimas.errors %}
+
+                                <div class="form-error">
+                                    {{ form.unidades_minimas.errors }}
+                                </div>
+
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="employee-detail-actions">
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    id="employee-cancel-update-button"
+                >
+                    Cancelar
+                </button>
+
+                <button
+                    type="submit"
+                    class="btn btn-primary"
+                    id="employee-save-update-button"
+                >
+                    Guardar cambios
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>

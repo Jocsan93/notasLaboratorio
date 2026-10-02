@@ -1,0 +1,63 @@
+{% extends "landing/base.html" %}
+{% load static %}
+
+
+{% block extra_css %}
+
+<link
+    rel="stylesheet"
+    href="{% static 'css/perfil_admin.css' %}?v=1"
+>
+<link
+    rel="stylesheet"
+    href="{% static 'css/metricas.css' %}?v=1"
+>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="admin-layout">
+
+    <!-- Barra lateral -->
+
+    {% include "users/admin_sidebar.html" %}
+
+
+    <!-- Contenido principal -->
+
+    <main class="admin-content">
+
+        <!-- Encabezado -->
+
+        <div class="admin-header">
+
+            <h1>
+                Métricas
+            </h1>
+
+            <p>
+                Métricas y estadísticas del sistema.
+            </p>
+
+        </div>
+
+
+        <!-- Contenido -->
+
+        <div class="metricas-construction-container">
+
+            <img
+                src="{% static 'IMG/underConstruction.png' %}"
+                alt="Sección bajo construcción"
+                class="metricas-construction-image"
+            >
+
+        </div>
+
+    </main>
+
+</div>
+
+{% endblock %}

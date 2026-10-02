@@ -16,4 +16,6 @@ urlpatterns = [
     path("professor/registrar-form/", professor_registration_form, name="professor_registration_form"),
     path("student/registrar-form/", student_registration_form, name="student_registration_form"),
     path("theory", theory_main_view, name="main_theory"),
+    path("change_password", cambiar_password_view, name="change_password"),
+    path("solicitar-cambio-password", solicitar_cambio_password_view, name="solicitar_cambio_password"),
 ]

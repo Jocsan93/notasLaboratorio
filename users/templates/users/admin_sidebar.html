@@ -110,8 +110,8 @@
         </a>
 
                 <a
-            href="#"
-            class="sidebar-item {% if request.resolver_match.url_name == 'metricas_admin' %}active{% endif %}"
+            href="{% url 'metricas_main'%}"
+            class="sidebar-item {% if request.resolver_match.url_name == 'metricas_main' %}active{% endif %}"
         >
             <span class="sidebar-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" 
@@ -131,8 +131,8 @@
 
         <!-- CAMBIAR CONTRASEÑA -->
         <a
-            href="#"
-            class="sidebar-item {% if request.resolver_match.url_name == 'cambiar_password' %}active{% endif %}"
+            href="{%url 'change_password'%}"
+            class="sidebar-item {% if request.resolver_match.url_name == 'change_password' %}active{% endif %}"
         >
             <span class="sidebar-icon">
                 <svg xmlns="http://www.w3.org/2000/svg"

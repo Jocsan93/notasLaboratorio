@@ -4,10 +4,12 @@ from django.contrib.auth.decorators import login_required
 from users.models import User
 from django.core.exceptions import PermissionDenied
 from .forms import AdminRegistrationForm, InstructorRegistrationForm, ProfessorRegistrationForm, StudentRegistrationForm
-from .mongo_models import UserDocument
+from .mongo_models import UserDocument, PasswordChangeCode
 from functools import wraps
 from django.contrib.auth.views import redirect_to_login
-
+from django.http import JsonResponse
+import secrets
+from .utils import hash_password_change_code
 
 
 def admin_required(view_func):
@@ -380,5 +382,64 @@ def student_registration_form(request):
         "users/student_form.html",
         {
             "form": form
+        }
+    )
+
+@login_required
+def cambiar_password_view(request):
+    return render( request, "users/cambiar_password.html")
+
+@login_required
+def solicitar_cambio_password_view(request):
+
+    if request.method != "POST":
+
+        return JsonResponse(
+            {
+                "success": False,
+                "message": "Método no permitido."
+            },
+            status=405
+        )
+
+    codigo = str(
+        secrets.randbelow(900000) + 100000
+    )
+
+    correo = request.user.email
+
+    PasswordChangeCode.objects(
+        email=correo
+    ).delete()
+
+    codigo_hash = hash_password_change_code(
+        codigo
+    )
+
+    PasswordChangeCode(
+        email=correo,
+        codigo_hash=codigo_hash
+    ).save()
+
+    print("\n")
+    print(
+        "========== CAMBIO DE CONTRASEÑA =========="
+    )
+    print(
+        "Enviando correo a:",
+        correo
+    )
+    print(
+        "Código de verificación:",
+        codigo
+    )
+    print(
+        "==========================================="
+    )
+    print("\n")
+
+    return JsonResponse(
+        {
+            "success": True
         }
     )

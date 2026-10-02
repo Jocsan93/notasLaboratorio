@@ -1,0 +1,233 @@
+<div class="theory-sections-table-alt">
+
+    <div class="theory-sections-header-alt">
+
+        <div>
+
+            <h2>
+                Empleados registrados
+            </h2>
+
+            <p>
+                Listado de los empleados actualmente registrados
+                en el sistema.
+            </p>
+
+        </div>
+
+
+        <div class="theory-sections-total-alt">
+
+            <strong>
+                {{ paginator.count }}
+            </strong>
+
+            <span>
+                empleados
+            </span>
+
+        </div>
+
+    </div>
+
+
+    {% if empleados %}
+
+        <div class="table-responsive">
+
+            <table
+                class="table theory-sections-table-content-alt"
+            >
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Nombre
+                        </th>
+
+                        <th>
+                            Número de empleado
+                        </th>
+
+                        <th>
+                            Correo
+                        </th>
+
+                        <th>
+                            Cargo
+                        </th>
+
+                        <th>
+                            Departamento
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    {% for empleado in empleados %}
+
+                        <tr
+                            class="theory-section-row theory-section-row-alt"
+                            data-numero-empleado="{{ empleado.numero_empleado }}"
+                            data-nombre="{{ empleado.nombre }}"
+                        >
+
+                            <td>
+                                {{ empleado.nombre }}
+                            </td>
+
+                            <td>
+                                {{ empleado.numero_empleado }}
+                            </td>
+
+                            <td>
+                                {{ empleado.correo }}
+                            </td>
+
+                            <td>
+                                {{ empleado.cargo }}
+                            </td>
+
+                            <td>
+                                {{ empleado.departamento }}
+                            </td>
+
+                        </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <br>
+        <br>
+
+
+        {% if paginator.num_pages > 1 %}
+
+            <nav
+                aria-label="Navegación de empleados"
+                class="theory-pagination-alt"
+            >
+
+                <ul class="pagination justify-content-center">
+
+                    {% if empleados.has_previous %}
+
+                        <li class="page-item">
+
+                            <a
+                                class="page-link theory-page-link theory-page-link-alt"
+                                href="?page={{ empleados.previous_page_number }}"
+                                data-page="{{ empleados.previous_page_number }}"
+                            >
+                                Anterior
+                            </a>
+
+                        </li>
+
+                    {% else %}
+
+                        <li class="page-item disabled">
+
+                            <span class="page-link theory-page-link-alt">
+                                Anterior
+                            </span>
+
+                        </li>
+
+                    {% endif %}
+
+
+                    {% for numero in paginator.page_range %}
+
+                        {% if numero == empleados.number %}
+
+                            <li class="page-item active">
+
+                                <span class="page-link theory-page-link-alt">
+                                    {{ numero }}
+                                </span>
+
+                            </li>
+
+                        {% else %}
+
+                            <li class="page-item">
+
+                                <a
+                                    class="page-link theory-page-link theory-page-link-alt"
+                                    href="?page={{ numero }}"
+                                    data-page="{{ numero }}"
+                                >
+                                    {{ numero }}
+                                </a>
+
+                            </li>
+
+                        {% endif %}
+
+                    {% endfor %}
+
+
+                    {% if empleados.has_next %}
+
+                        <li class="page-item">
+
+                            <a
+                                class="page-link theory-page-link theory-page-link-alt"
+                                href="?page={{ empleados.next_page_number }}"
+                                data-page="{{ empleados.next_page_number }}"
+                            >
+                                Siguiente
+                            </a>
+
+                        </li>
+
+                    {% else %}
+
+                        <li class="page-item disabled">
+
+                            <span class="page-link theory-page-link-alt">
+                                Siguiente
+                            </span>
+
+                        </li>
+
+                    {% endif %}
+
+                </ul>
+
+            </nav>
+
+        {% endif %}
+
+
+    {% else %}
+
+        <div class="theory-sections-empty-alt">
+
+            <h2>
+                No hay empleados registrados
+            </h2>
+
+            <p>
+                Actualmente no existen empleados
+                registrados en el sistema.
+            </p>
+
+        </div>
+
+    {% endif %}
+
+</div>

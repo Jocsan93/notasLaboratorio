@@ -40,6 +40,8 @@
     font-size: 0.95rem;
     line-height: 1.5;
 }
+
+
 /* =========================================================
    ENCABEZADO
    ========================================================= */
@@ -264,6 +266,7 @@
 
 }
 
+
 /* =========================================================
    FORMULARIO DE CARGA DE SECCIONES
    ========================================================= */
@@ -433,6 +436,7 @@
 
 }
 
+
 /* =========================================================
    BOTÓN CARGAR ARCHIVO
    ========================================================= */
@@ -573,6 +577,11 @@
 
 }
 
+
+/* =========================================================
+   TABLA DE SECCIONES DE TEORÍA
+   ========================================================= */
+
 .theory-sections-table {
     width: 100%;
     padding: 25px 0;
@@ -690,38 +699,289 @@
 /* Filas */
 
 .theory-sections-table-content tbody tr {
+
     transition:
         background-color 0.2s ease,
-        box-shadow 0.2s ease,
-        transform 0.2s ease;
+        box-shadow 0.2s ease;
+
     cursor: pointer;
+
 }
 
 .theory-sections-table-content tbody tr:hover {
+
     background-color: #e8f0f7;
+
     box-shadow: inset 5px 0 0 #1f4e79;
-    transform: scale(1.01);
+
 }
 
 .theory-sections-table-content tbody tr:hover td {
+
     color: #1f4e79;
+
     font-weight: 500;
+
 }
 
 
-/* Alinear datos numéricos */
+/* =========================================================
+   TABLA DE EMPLEADOS
+   ========================================================= */
 
-.theory-sections-table-content th:nth-child(2),
-.theory-sections-table-content td:nth-child(2),
-.theory-sections-table-content th:nth-child(4),
-.theory-sections-table-content td:nth-child(4) {
+.theory-sections-table-alt {
+    width: 100%;
+
+    padding: 25px 0;
+}
+
+
+/* =========================================================
+   ENCABEZADO DE EMPLEADOS
+   ========================================================= */
+
+.theory-sections-header-alt {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.theory-sections-header-alt h2 {
+
+    margin: 0 0 6px;
+
+    color: #1f4e79;
+
+    font-size: 1.5rem;
+
+    font-weight: 600;
+
+}
+
+
+.theory-sections-header-alt p {
+
+    margin: 0;
+
+    color: #666;
+
+    line-height: 1.5;
+
+}
+
+
+/* =========================================================
+   CONTADOR DE EMPLEADOS
+   ========================================================= */
+
+.theory-sections-total-alt {
+
+    display: flex;
+
+    align-items: baseline;
+
+    gap: 7px;
+
+    padding: 10px 16px;
+
+    background-color: #f4f7fa;
+
+    border: 1px solid #d9e2ea;
+
+    border-radius: 8px;
+
+    white-space: nowrap;
+
+}
+
+
+.theory-sections-total-alt strong {
+
+    color: #1f4e79;
+
+    font-size: 1.5rem;
+
+    font-weight: 700;
+
+}
+
+
+.theory-sections-total-alt span {
+
+    color: #666;
+
+    font-size: 0.95rem;
+
+}
+
+
+/* =========================================================
+   TABLA
+   ========================================================= */
+
+.theory-sections-table-content-alt {
+
+    width: 100%;
+
+    margin-bottom: 0;
+
+    border-collapse: separate;
+
+    border-spacing: 0;
+
+    overflow: hidden;
+
+    border: 1px solid #d9e2ea;
+
+    border-radius: 8px;
+
+}
+
+
+/* =========================================================
+   ENCABEZADO DE TABLA
+   ========================================================= */
+
+.theory-sections-table-content-alt thead th {
+
+    padding: 14px 16px;
+
+    background-color: #1f4e79;
+
+    color: #ffffff;
+
+    border: none;
+
+    font-size: 0.9rem;
+
+    font-weight: 600;
+
+    vertical-align: middle;
+
+    white-space: nowrap;
+
+}
+
+
+/* =========================================================
+   CELDAS
+   ========================================================= */
+
+.theory-sections-table-content-alt tbody td {
+
+    padding: 13px 16px;
+
+    color: #1f4e79;
+
+    border-top: 1px solid #e5e9ed;
+
+    vertical-align: middle;
+
+    font-weight: 500;
+
+}
+
+
+/* =========================================================
+   FILAS
+   ========================================================= */
+
+.theory-sections-table-content-alt tbody tr {
+
+    transition:
+        background-color 0.2s ease,
+        box-shadow 0.2s ease;
+
+    cursor: pointer;
+
+}
+
+
+.theory-sections-table-content-alt tbody tr:hover {
+
+    background-color: #e8f0f7;
+
+    box-shadow: inset 5px 0 0 #1f4e79;
+
+}
+
+
+.theory-sections-table-content-alt tbody tr:hover td {
+
+    color: black;
+
+}
+
+
+/* =========================================================
+   ALINEACIÓN
+   ========================================================= */
+
+.theory-sections-table-content-alt th:nth-child(2),
+.theory-sections-table-content-alt td:nth-child(2) {
+
     text-align: center;
+
 }
 
 
-/* Estado sin registros */
+/* =========================================================
+   PAGINACIÓN DE EMPLEADOS
+   ========================================================= */
 
-.theory-sections-empty {
+.theory-pagination-alt {
+
+    margin-top: 10px;
+
+}
+
+
+.theory-pagination-alt .page-link {
+
+    color: #1f4e79;
+
+    border-color: #d9e2ea;
+
+}
+
+
+.theory-pagination-alt .page-link:hover {
+
+    color: #1f4e79;
+
+    background-color: #e8f0f7;
+
+    border-color: #c7d5e2;
+
+}
+
+
+.theory-pagination-alt .page-item.active .page-link {
+
+    background-color: #1f4e79;
+
+    border-color: #1f4e79;
+
+    color: #ffffff;
+
+}
+
+
+/* =========================================================
+   ESTADO VACÍO DE EMPLEADOS
+   ========================================================= */
+
+.theory-sections-empty-alt {
+
     padding: 50px 30px;
 
     text-align: center;
@@ -731,271 +991,521 @@
     border: 1px solid #d9e2ea;
 
     border-radius: 8px;
+
+}
+
+
+.theory-sections-empty-alt h2 {
+
+    margin: 0 0 8px;
+
+    color: #1f4e79;
+
+    font-size: 1.4rem;
+
+    font-weight: 600;
+
+}
+
+
+.theory-sections-empty-alt p {
+
+    margin: 0;
+
+    color: #666;
+
+    line-height: 1.6;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE DE EMPLEADOS
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .theory-sections-header-alt {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+
+    }
+
+
+    .theory-sections-total-alt {
+
+        align-self: flex-start;
+
+    }
+
+
+    .theory-sections-table-content-alt {
+
+        font-size: 0.9rem;
+
+    }
+
+
+    .theory-sections-table-content-alt thead th,
+    .theory-sections-table-content-alt tbody td {
+
+        padding: 11px 12px;
+
+    }
+
+}
+
+
+/* =========================================================
+   ALINEAR DATOS NUMÉRICOS DE TEORÍA
+   ========================================================= */
+
+.theory-sections-table-content th:nth-child(2),
+.theory-sections-table-content td:nth-child(2),
+.theory-sections-table-content th:nth-child(4),
+.theory-sections-table-content td:nth-child(4) {
+
+    text-align: center;
+
+}
+
+
+/* =========================================================
+   ESTADO SIN REGISTROS
+   ========================================================= */
+
+.theory-sections-empty {
+
+    padding: 50px 30px;
+
+    text-align: center;
+
+    background-color: #f8fafc;
+
+    border: 1px solid #d9e2ea;
+
+    border-radius: 8px;
+
 }
 
 .theory-sections-empty h2 {
+
     margin: 0 0 8px;
 
     color: #1f4e79;
 
     font-size: 1.4rem;
     font-weight: 600;
+
 }
 
 .theory-sections-empty p {
+
     margin: 0;
 
     color: #666;
 
     line-height: 1.6;
+
 }
 
 
-/* Responsive */
+/* =========================================================
+   RESPONSIVE DE TEORÍA
+   ========================================================= */
 
 @media (max-width: 768px) {
 
     .theory-sections-header {
+
         flex-direction: column;
 
         align-items: flex-start;
 
         gap: 15px;
+
     }
 
     .theory-sections-total {
+
         align-self: flex-start;
+
     }
 
     .theory-sections-table-content {
+
         font-size: 0.9rem;
+
     }
 
     .theory-sections-table-content thead th,
     .theory-sections-table-content tbody td {
+
         padding: 11px 12px;
+
     }
 
 }
 
+
+/* =========================================================
+   BOTÓN REGRESAR
+   ========================================================= */
+
 .theory-back-sections-button {
+
     display: inline-flex;
+
     align-items: center;
+
     gap: 8px;
+
     padding: 10px 18px;
+
     background-color: #1f4e79;
+
     color: white;
+
     border: 1px solid #1f4e79;
+
     border-radius: 6px;
+
     font-size: 0.95rem;
+
     font-weight: 500;
+
     cursor: pointer;
+
     transition:
         background-color 0.2s ease,
         box-shadow 0.2s ease,
         transform 0.2s ease;
+
 }
 
 .theory-back-sections-button:hover {
+
     background-color: #163a5c;
+
     box-shadow: 0 3px 8px rgba(31, 78, 121, 0.25);
+
     transform: translateX(-2px);
+
 }
 
+
+/* =========================================================
+   BOTÓN DESCARGAR EXCEL
+   ========================================================= */
+
 .theory-download-excel-button {
+
     display: inline-flex;
+
     align-items: center;
+
     gap: 8px;
+
     padding: 10px 18px;
+
     background-color: #2e7d32;
+
     color: white;
+
     border: 1px solid #2e7d32;
+
     border-radius: 6px;
+
     font-size: 0.95rem;
+
     font-weight: 500;
+
     cursor: pointer;
+
     transition:
         background-color 0.2s ease,
         box-shadow 0.2s ease,
         transform 0.2s ease;
+
 }
 
 .theory-download-excel-button:hover {
+
     background-color: #256628;
+
     box-shadow: 0 3px 8px rgba(46, 125, 50, 0.25);
+
     transform: translateY(-2px);
+
 }
 
-/* ================================================= */
-/* BUSCAR SECCIONES */
-/* ================================================= */
+
+/* =================================================
+   BUSCAR SECCIONES
+   ================================================= */
 
 .theory-search-container {
+
     width: 100%;
+
     padding: 25px 0;
+
 }
 
 .theory-search-header {
+
     margin-bottom: 20px;
+
 }
 
 .theory-search-header h2 {
+
     margin: 0 0 6px;
+
     color: #1f4e79;
+
     font-size: 1.5rem;
+
     font-weight: 600;
+
 }
 
 .theory-search-header p {
+
     margin: 0;
+
     color: #666;
+
     line-height: 1.5;
+
 }
 
 .theory-search-input-container {
+
     width: 100%;
+
     max-width: 650px;
+
     margin-bottom: 25px;
+
 }
 
 .theory-search-input-container .input-group-text {
+
     background-color: #f4f7fa;
+
     border-color: #d9e2ea;
+
     color: #1f4e79;
+
 }
 
 .theory-search-input-container .form-control {
+
     border-color: #d9e2ea;
+
     padding: 10px 12px;
+
 }
 
 .theory-search-input-container .form-control:focus {
+
     border-color: #1f4e79;
+
     box-shadow: 0 0 0 0.2rem rgba(31, 78, 121, 0.15);
+
 }
 
 .theory-search-results {
+
     width: 100%;
+
 }
 
 .theory-placeholder img {
+
     display: block;
+
     max-width: 100%;
+
     max-height: 350px;
+
     width: auto;
+
     height: auto;
+
     margin: 0 auto;
+
 }
+
 
 /* =========================================
    DEPURAR ESTUDIANTES
    ========================================= */
 
 .theory-delete-container {
+
     width: 100%;
+
 }
 
 
 /* Encabezado */
 
 .theory-delete-container .theory-search-header {
+
     margin-bottom: 25px;
+
 }
 
 .theory-delete-container .theory-search-header h2 {
+
     color: #233969;
+
     font-weight: 600;
+
     margin-bottom: 8px;
+
 }
 
 .theory-delete-container .theory-search-header p {
+
     color: #6c757d;
+
     margin-bottom: 0;
+
 }
 
 
 /* Tarjetas de estadísticas */
 
 .theory-delete-container .card {
+
     border: none;
+
     border-left: 5px solid #233969;
+
     border-radius: 10px;
+
     background-color: #f8f9fa;
+
     box-shadow: 0 2px 8px rgba(35, 57, 105, 0.10);
+
     transition:
         transform 0.2s ease,
         box-shadow 0.2s ease;
+
 }
 
 
 .theory-delete-container .card:hover {
+
     transform: translateY(-2px);
+
     box-shadow: 0 5px 14px rgba(35, 57, 105, 0.16);
+
 }
 
 
 .theory-delete-container .card-body {
+
     padding: 20px;
+
 }
 
 
 .theory-delete-container .card h6 {
+
     color: #6c757d;
+
     font-weight: 500;
+
     margin-bottom: 8px;
+
 }
 
 
 .theory-delete-container .card h3 {
+
     color: #233969;
+
     font-size: 2rem;
+
     font-weight: 700;
+
     margin-bottom: 0;
+
 }
 
 
 /* Tabla */
 
 .theory-delete-container .table-responsive {
+
     background-color: #ffffff;
+
     border-radius: 10px;
+
     box-shadow: 0 2px 8px rgba(35, 57, 105, 0.10);
+
     overflow: hidden;
+
 }
 
 
 .theory-delete-container table {
+
     margin-bottom: 0;
+
 }
 
 
 .theory-delete-container thead {
+
     background-color: #233969;
+
     color: #ffffff;
+
 }
 
 
 .theory-delete-container thead th {
+
     border: none;
+
     padding: 13px 15px;
+
     font-weight: 600;
+
     white-space: nowrap;
+
 }
 
 
 .theory-delete-container tbody td {
+
     padding: 13px 15px;
+
     vertical-align: middle;
+
 }
 
 
 .theory-delete-container tbody tr {
+
     transition: background-color 0.15s ease;
+
 }
 
 
 .theory-delete-container tbody tr:hover {
+
     background-color: #f1f5fb;
+
 }
 
 
@@ -1003,22 +1513,32 @@
 
 .theory-delete-container
 .lab-cleanup-delete-button {
+
     background-color: #dc3545;
+
     border-color: #dc3545;
+
     border-radius: 6px;
+
     font-weight: 500;
+
     transition:
         background-color 0.2s ease,
         border-color 0.2s ease,
         transform 0.2s ease;
+
 }
 
 
 .theory-delete-container
 .lab-cleanup-delete-button:hover {
+
     background-color: #bb2d3b;
+
     border-color: #bb2d3b;
+
     transform: translateY(-1px);
+
 }
 
 
@@ -1026,35 +1546,49 @@
 
 #labCleanupWarningModal .modal-content,
 #labCleanupNuclearModal .modal-content {
+
     border: none;
+
     border-radius: 10px;
+
     box-shadow: 0 8px 30px rgba(35, 57, 105, 0.20);
+
 }
 
 
 #labCleanupWarningModal .modal-header,
 #labCleanupNuclearModal .modal-header {
+
     background-color: #233969;
+
     color: #ffffff;
+
     border-bottom: none;
+
 }
 
 
 #labCleanupWarningModal .modal-title,
 #labCleanupNuclearModal .modal-title {
+
     font-weight: 600;
+
 }
 
 
 #labCleanupWarningModal .btn-close,
 #labCleanupNuclearModal .btn-close {
+
     filter: brightness(0) invert(1);
+
 }
 
 
 #labCleanupWarningModal .modal-body,
 #labCleanupNuclearModal .modal-body {
+
     padding: 25px;
+
 }
 
 
@@ -1068,20 +1602,145 @@
 #cleanup-student-physics,
 #labCleanupNuclearModal
 #cleanup-student-section {
+
     color: #233969;
+
     font-weight: 500;
+
 }
 
 
 /* Botón de eliminación definitiva */
 
 #lab-cleanup-final-delete-button {
+
     background-color: #dc3545;
+
     border-color: #dc3545;
+
 }
 
 
 #lab-cleanup-final-delete-button:hover {
+
     background-color: #bb2d3b;
+
     border-color: #bb2d3b;
+
+}
+
+/* =========================================================
+   DETALLE DE EMPLEADO
+   ========================================================= */
+
+.employee-detail-card {
+    border: none;
+    border-left: 5px solid #1f4e79;
+    border-radius: 8px;
+    box-shadow: none;
+    background-color: #ffffff;
+}
+
+.employee-detail-header {
+    padding-bottom: 18px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.employee-detail-name {
+    margin: 0;
+
+    color: #1f4e79;
+
+    font-size: 1.45rem;
+    font-weight: 600;
+}
+
+.employee-detail-position {
+    margin: 5px 0 0 0;
+
+    color: #6c757d;
+
+    font-size: 0.95rem;
+}
+
+.employee-detail-section {
+    padding-top: 22px;
+}
+
+.employee-detail-section h4 {
+    margin-bottom: 15px;
+
+    color: #1f4e79;
+
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.employee-detail-item {
+    height: 100%;
+
+    padding: 12px 14px;
+
+    border: 1px solid #e1e5e9;
+    border-radius: 6px;
+
+    background-color: #f8f9fa;
+}
+
+.employee-detail-item span {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: #6c757d;
+
+    font-size: 0.78rem;
+    font-weight: 500;
+}
+
+.employee-detail-item strong {
+    display: block;
+
+    color: #1f4e79;
+
+    font-size: 0.92rem;
+    font-weight: 500;
+
+    overflow-wrap: anywhere;
+}
+
+.employee-detail-actions {
+    display: flex;
+    justify-content: flex-end;
+
+    margin-top: 25px;
+    padding-top: 20px;
+
+    border-top: 1px solid #dee2e6;
+}
+
+.employee-detail-actions .btn {
+    min-width: 190px;
+}
+
+.employee-detail-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+
+    margin-top: 25px;
+    padding-top: 20px;
+
+    border-top: 1px solid #dee2e6;
+}
+
+.employee-detail-item label {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: #1f4e79;
+    font-weight: 700;
+
+    font-size: 0.82rem;
 }
